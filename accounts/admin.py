@@ -9,6 +9,7 @@ from django.contrib.auth.admin import UserAdmin
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
         list_display = [
+            'username',
         'order_time',
         'pickup_time',
         'current_balance',]
