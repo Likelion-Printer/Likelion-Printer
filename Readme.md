@@ -1,1 +1,1 @@
-<h3>Early printer</h3>
+<h3>Early Printer</h3>
