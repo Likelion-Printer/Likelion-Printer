@@ -15,14 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-import accounts.views
-import confirmations.views
 import orders.views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', orders.views.home, name="home"),
-    path('accounts/' , include('accounts.urls')),
-    path('confirmations/', include('confirmations.urls')),
-    path('orders/', include('orders.urls')),
+    path('print_setting/', orders.views.print_setting, name='print_setting'),
 ]

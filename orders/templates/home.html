@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Early Printer</title>
+</head>
+<body>
+    <header>
+        <a href="{% url 'home' %}">Early Printer</a>
+        <a href="{% url 'my_order' %}">내 주문</a> <!--유저에 따라 달라져야할 페이지-->
+        <a href="{% url 'login' %}">로그인</a>
+    </header>
+    <nav>
+        <a href="{% url 'print_setting' %}">주문하기</a>
+    </nav>
+</body>
+</html>
