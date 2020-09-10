@@ -1,12 +1,41 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">    
 </head>
 <body>
-    login 페이지입니다.<br>
-    <a href="{% url 'staff_login' %}">혹시 사장님이신가요?</a>
+    <header>
+        <a href="{% url 'login' %}">로그인</a>
+    </header>
+
+    <h1>Login</h1>
+
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        Username:
+        <br>
+        <input style="WIDTH: 110pt; HEIGHT: 18pt" name="username" type="text" value="">
+        <br><br>
+        Password:
+        <br>
+        <input style="WIDTH: 110pt; HEIGHT: 18pt" name="password" type="password" value="">
+        <br>
+        <br>
+        <input style="WIDTH: 45pt; HEIGHT: 19pt" type="submit" value="Login">
+    </form>
+    <script>
+        const error = "{{error}}";
+        if(error){
+            alert(error);
+        }
+    </script>
+    
+ 
+    <a href="{% url 'signup' %}">회원가입</a>
+    <a href="{% url 'staff_login' %}">대시보드 로그인</a>
 </body>
 </html>

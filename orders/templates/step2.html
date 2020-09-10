@@ -10,6 +10,8 @@
         <a class="test" href="{% url 'my_order' %}">마이페이지</a>
         <a href="{% url 'logout' %}">로그아웃</a>
     </header>
-    내 주문 페이지입니다.
+    
+    인쇄소 및 픽업시간 설정 페이지입니다.<br>
+    <a href="{% url 'payment' order.id %}">결제하기</a>
 </body>
 </html>

@@ -10,6 +10,13 @@
         <a class="test" href="{% url 'my_order' %}">마이페이지</a>
         <a href="{% url 'logout' %}">로그아웃</a>
     </header>
-    내 주문 페이지입니다.
+
+    파일 업로드 및 프린트 설정 페이지입니다.<br>
+    <form action="{% url 'create_order' %}" method="POST">
+        {% csrf_token %}
+
+        <input type="submit" value="인쇄소 선택하기">
+    </form>
+    
 </body>
 </html>

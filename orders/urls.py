@@ -18,5 +18,9 @@ from django.urls import path, include
 import orders.views
 
 urlpatterns = [
-    path('print_setting/', orders.views.print_setting, name='print_setting'),
+    path('step1/', orders.views.step1, name='step1'),
+    path('create_order', orders.views.create_order, name='create_order'),
+    path('step2/<int:id>', orders.views.step2, name='step2'),
+    path('payment/<int:id>', orders.views.payment, name='payment'),
+    path('order_result/<int:id>', orders.views.order_result, name='order_result')
 ]
