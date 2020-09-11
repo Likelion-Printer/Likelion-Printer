@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -120,4 +121,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+TEMPLATE_CONTEXT_PROCESSORS = ( 'django.core.context_processors.request', )
+
+
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'accounts', 'static'),
+    os.path.join(BASE_DIR, 'confirmations', 'static'),
+    os.path.join(BASE_DIR, 'orders', 'static'),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'config', 'collected_static')
+# print("base dir path:", BASE_DIR)

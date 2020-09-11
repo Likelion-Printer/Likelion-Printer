@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <a class="test" href="{% url 'my_order' %}">마이페이지</a>
+        <a href="{% url 'logout' %}">로그아웃</a>
+    </header>
+
+    파일 업로드 및 프린트 설정 페이지입니다.<br>
+    <form action="{% url 'create_order' %}" method="POST">
+        {% csrf_token %}
+
+        <input type="submit" value="인쇄소 선택하기">
+    </form>
+    
+</body>
+</html>

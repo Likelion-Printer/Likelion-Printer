@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <a class="test" href="{% url 'my_order' %}">마이페이지</a>
+        <a href="{% url 'logout' %}">로그아웃</a>
+    </header>
+    
+    인쇄소 및 픽업시간 설정 페이지입니다.<br>
+    <a href="{% url 'payment' order.id %}">결제하기</a>
+</body>
+</html>
