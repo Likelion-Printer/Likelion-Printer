@@ -7,8 +7,8 @@ from . import models
 class OrderAdmin(admin.ModelAdmin):
     list_display = (
         "customer",
-        "order_time",
         "pickup_time",
+        "order_time",
         "status",
         "number_of_pages",
         "options_color",
