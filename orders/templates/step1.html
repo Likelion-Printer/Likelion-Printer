@@ -1,22 +1,96 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="/static/orders/css/step1.css" />
+    
+
 </head>
+
 <body>
-    <header>
-        <a class="test" href="{% url 'my_order' %}">마이페이지</a>
-        <a href="{% url 'logout' %}">로그아웃</a>
-    </header>
+    <div id = 'container'>
+        <header>
+            <div class = 'header_right'>
+                <div id='my_page'><a class="test" href="/confirmations/my_order/" target="my_page">마이페이지</a></div>
+                <div id='logout'><a href="/accounts/logout/" target="logout">로그아웃</a></div>
+            </div>
+            <div class = 'header_left'>
+               <img style="width: 48px; height: 54.47px;" src="/static/Group-1.png" alt="로고"></div>
+            </div>
+            
+        </header>
 
-    파일 업로드 및 프린트 설정 페이지입니다.<br>
-    <form action="{% url 'create_order' %}" method="POST">
-        {% csrf_token %}
+        <section>
+            <div class="section_1">
+                <div class = 'bar_box'>
+                    <div id='circle'></div>
+                    <div id='circle' style="background-color:#7558EE"></div>
+                    <div id='circle'></div>
+                    <div id='circle'></div>
+                </div>
+            </div>
 
-        <input type="submit" value="인쇄소 선택하기">
-    </form>
+            <div class='section_2'>
+                <div id = file_upload_box>
+                    <div id='file_upload'>파일 업로드</div>
+    
+                    <div id='drag_upload'>드래그앤드랍구역</div>
+                    <input type="file" id='file' name='file' accept=".doc,.pdf,images/*" multiple>
+                </div>
+            
+                <div id='choose_box'>
+                    <div id = 'select_button_box'>
+                        <form action="/orders/create_order" method="POST">
+                            <input type="hidden" name="csrfmiddlewaretoken" value="lznCkWhGRD4kHLIEYY4nzOOggi0VPW4x4XooV9olP80BpL3NAP7XSxDx3QxldVUJ">
+                            <button id='select_button' type="submit" value="인쇄소 선택하기 ">
+                                <img src="/static/select_button.png" width=100% height = 112px >
+                            </button>
+                        </form>
+                        <div id='direct_edit'>
+                            <div id="direct_edit_1">인쇄 용지 설정</div>
+                            <div id ='direct_edit_2'>
+                                <img src="/static/Path_43.png" width=100% height = 6.63px >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='edit'>
+                <div id='edit_content'>
+                    용지설정부분
+                </div>
+            </div>
+
+            <div class='request_box'>
+                <div id="request_box_content">
+                    <form method="post">
+                        <div style=
+                        "font-size: 1.375rem; 
+                        font-family:'Open Sans', sans-serif;
+                        font-weight: normal;
+                        font-weight: 600;
+                        margin-bottom: 24px;">
+                        추가 요청사항
+                        </div>
+                        <textarea id="request"></textarea>
+                        <button>Save</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class = 'next_button_box'>
+                <button id='next_button' type="submit" value="인쇄소 선택하기">
+                    <img src="/static/select_button.png" width=100% height = 112px >
+                </button>
+            </div>
+        </section>
+    
+    </div>
     
 </body>
 </html>

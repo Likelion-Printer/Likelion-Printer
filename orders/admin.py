@@ -1,4 +1,9 @@
 from django.contrib import admin
+<<<<<<< HEAD
+
+
+# Register your models here.
+=======
 from . import models
 
 
@@ -21,3 +26,4 @@ class OrderAdmin(admin.ModelAdmin):
 
     list_filter = ("order_time", "pickup_time")
 
+>>>>>>> 0ad93b7b864c516fd5a1ea7f3ad6b0851aaf7bb3
