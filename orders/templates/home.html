@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Early Printer</title>
+    <!--예시 <link rel="stylesheet" href="{% static 'orders/css/style.css' %}"> -->
+</head>
+<body>
+    <header>
+        <a href="{% url 'home' %}">Early Printer(logo)</a>
+        {% if user.is_authenticated %}
+        <a class="test" href="{% url 'my_order' %}">마이페이지</a> <!--유저에 따라 달라져야할 페이지-->
+        <a href="{% url 'logout' %}">로그아웃</a>
+        {% else %}
+        <a href="{% url 'login' %}">로그인</a>
+        {% endif %}
+    </header>
+
+    <a href="{% url 'step1' %}">주문넣기</a>
+
+    <script>
+        const msg = "{{ msg }}";
+
+        if(msg){
+            alert(msg);
+        }
+    </script>
+    
+</body>
+</html>
