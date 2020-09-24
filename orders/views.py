@@ -12,8 +12,15 @@ def step1(request):
     return render(request, 'step1.html')
 
 def create_order(request):
-    order = Order()
-    order.cost = 13
+    order = Order(printer_house_id = 1)
+    order.customer = request.user
+    # order.printer_house = Printer_house.objects.get(id = 1)
+    order.options_color = "color"
+    order.options_print = "single"
+    order.options_pages = "two"
+    order.number_of_pages = 5
+    order.cost()
+    order.order_num()
     order.save()
     id = order.pk
     return redirect('step2' , id)
