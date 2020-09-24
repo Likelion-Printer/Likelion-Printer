@@ -15,15 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-import accounts.views
-import confirmations.views
 import orders.views
 
-
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', orders.views.home, name="home"),
-    path('accounts/' , include('accounts.urls')),
-    path('confirmations/', include('confirmations.urls')),
-    path('orders/', include('orders.urls')), 
+    path('step1/', orders.views.step1, name='step1'),
+    path('create_order', orders.views.create_order, name='create_order'),
+    path('step2/<int:id>', orders.views.step2, name='step2'),
+    path('payment/<int:id>', orders.views.payment, name='payment'),
+    path('order_result/<int:id>', orders.views.order_result, name='order_result')
 ]
