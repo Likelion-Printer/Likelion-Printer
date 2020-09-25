@@ -111,7 +111,8 @@ a[target='logout'] {
     width: 58.75%;
     box-sizing: border-box;
     position: absolute;
-    left:24.750em;
+    left: 21%;
+    right: 21%;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -126,7 +127,8 @@ a[target='logout'] {
     width: 58.75%;
     box-sizing: border-box;
     position: absolute;
-    left:24.750em;
+    left: 21%;
+    right: 21%;
     bottom: 0;
     
 }
@@ -172,13 +174,15 @@ a[target='logout'] {
     height: 200px;
     background-color: burlywood;
     position: absolute;
-    left:24.750em;
+    left: 21%;
+    right: 21%;
 }
 #request_box_content {
     width: 58.75%;
     height: 336px;
     position: absolute;
-    left:24.750em;
+    left: 21%;
+    right: 21%;
 }
 textarea {
     width: 100%;
@@ -199,7 +203,8 @@ textarea {
     width: 58.8%;
     height: 112px;
     position: absolute;
-    left: 396px;
+    left: 21%;
+    right: 21%;
     margin-bottom: 9.375em;
     padding: 0 0;
 }
