@@ -137,5 +137,12 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+<<<<<<< HEAD
 #페이크 데이터 
 commands/
+=======
+
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
+>>>>>>> 4f5717f46e02739d71806c9e4b86acd6ae09f313

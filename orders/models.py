@@ -2,8 +2,8 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from datetime import timedelta, timezone, datetime
 
-
 # Create your models here.
+
 class Order(models.Model):
     is_canceled = models.BooleanField(default=False)
     is_in_process = models.BooleanField(default=True)
@@ -65,3 +65,12 @@ class Order(models.Model):
         now = datetime.now()
         now_date = now.strftime("%Y%m%d")
         return now_date + str(self.id)
+
+
+class File(models.Model):
+    order = models.ForeignKey(
+        Order, on_delete=models.CASCADE
+    )
+    order_file = models.FileField(upload_to='doc/%Y/%m/%d/')
+
+    

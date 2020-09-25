@@ -17,7 +17,6 @@ def error_home(request):
 def create_order(request):
     order = Order()
     order.customer = request.user
-    # 파일
     order.options_print = request.POST.get('optionDirection')
     order.options_pages = request.POST.get('pagePerSheet')
     order.options_print = request.POST.get('optionPrint')
@@ -29,6 +28,13 @@ def create_order(request):
     order.order_num()
     order.save()
     id = order.pk
+    files = request.FILES.getlist('mutipleFiles')
+    print(files)
+    for file in files:
+        file_obj = File()
+        file_obj.order_file = file
+        file_obj.order = Order.objects.get(id=id)
+        file_obj.save()
     return redirect('step2' , id)
 
 def step2(request, id):
