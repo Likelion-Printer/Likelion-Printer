@@ -5,6 +5,7 @@ from . import models
 @admin.register(models.Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = (
+        "order_num",
         "customer",
         "pickup_time",
         "order_time",
@@ -14,8 +15,9 @@ class OrderAdmin(admin.ModelAdmin):
         "options_print",
         "options_pages",
         "cost",
-        "order_num",
     )
     readonly_fields = ("cost",)
 
     list_filter = ("order_time", "pickup_time")
+
+    list_display_links = ['order_num', 'customer']

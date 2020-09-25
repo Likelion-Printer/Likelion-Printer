@@ -18,12 +18,17 @@ from django.urls import path, include
 import accounts.views
 import confirmations.views
 import orders.views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', orders.views.home, name="home"),
+    path('error/', orders.views.error_home, name="error_home"),
     path('accounts/' , include('accounts.urls')),
     path('confirmations/', include('confirmations.urls')),
     path('orders/', include('orders.urls')), 
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

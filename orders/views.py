@@ -7,8 +7,12 @@ def home(request):
 
 def step1(request):
     if not(request.user.is_authenticated):
-        return redirect('home')
+        return redirect('error_home')
     return render(request, 'step1.html')
+
+def error_home(request):
+    msg = 'error'
+    return render(request, 'home.html', {'msg': msg})
 
 def create_order(request):
     order = Order()

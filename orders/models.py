@@ -5,7 +5,6 @@ from datetime import timedelta, timezone, datetime
 
 # Create your models here.
 class Order(models.Model):
-    # 파일 추가
     is_canceled = models.BooleanField(default=False)
     is_in_process = models.BooleanField(default=True)
     customer = models.ForeignKey(
