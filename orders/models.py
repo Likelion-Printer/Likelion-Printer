@@ -48,9 +48,6 @@ class Order(models.Model):
     options_directions = models.CharField(
         max_length=200, choices=OPTION_DIRECTIONS, default="vertical"
     )
-    options_directions = models.CharField(
-        max_length=200, choices=OPTION_DIRECTIONS, default="vertical"
-    )
     options_flip = models.CharField(
         max_length=200, choices=OPTION_FLIP, default="horizontal"
     )

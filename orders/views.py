@@ -8,8 +8,7 @@ def home(request):
 def step1(request):
     if not(request.user.is_authenticated):
         return redirect('home')
-    form = Step1Form()
-    return render(request, 'step1.html', {'form':form})
+    return render(request, 'step1.html')
 
 def create_order(request):
     order = Order()
