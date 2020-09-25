@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from . models import *
+from confirmations.models import *
 
 # Create your views here.
 def home(request):
