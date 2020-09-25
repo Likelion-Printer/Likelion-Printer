@@ -20,11 +20,17 @@
     <a href="{% url 'step1' %}">주문넣기</a>
 
     <script>
-      const msg = "{{ msg }}";
+            const msg = "{{ msg }}";
 
-      if (msg) {
-        alert(msg);
-      }
+      <<<<<<< HEAD
+            if (msg) {
+              alert(msg);
+            }
+      =======
+              if(msg){
+                  alert('로그인 후 이용가능한 서비스입니다.');
+              }
+      >>>>>>> b1419b4fe56ac094c289bda0b388b60bf9d18cbd
     </script>
   </body>
 </html>
