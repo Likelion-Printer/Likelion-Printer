@@ -35,14 +35,14 @@
                 </div>
             </div>
 
-            <form action="{% url 'create_order' %}" method="POST">
+            <form action="{% url 'create_order' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class='section_2'>
                     <div id = file_upload_box>
                         <div id='file_upload'>파일 업로드</div>
         
                         <div id='drag_upload'>드래그앤드랍구역</div>
-                        <input type="file" id='file' name='file' accept=".doc,.pdf,images/*" multiple>
+                        <input type="file" id='file' name='mutipleFiles' accept=".doc,.pdf,images/*" multiple>
                     </div>
                 
                     <div id='choose_box'>

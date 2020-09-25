@@ -21,3 +21,6 @@ class OrderAdmin(admin.ModelAdmin):
     list_filter = ("order_time", "pickup_time")
 
     list_display_links = ['order_num', 'customer']
+
+
+admin.site.register(models.File)
