@@ -20,9 +20,9 @@ class Order(models.Model):
     )
 
     STATUS = (
-        ("confirmed", "주문확인"),
-        ("complete", "인쇄완료"),
-        ("pending", "주문대기"),
+        ("picked_up", "픽업완료"),
+        ("complete", "인쇄완료"), # 인쇄 파일 선택 및 다운된 상태
+        ("pending", "주문대기"), # 손님이 주문 취소 가능한 상태
     )
     status = models.CharField(max_length=200, choices=STATUS, default="pending")
 
