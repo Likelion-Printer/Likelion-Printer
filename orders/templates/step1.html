@@ -34,60 +34,86 @@
                 </div>
             </div>
 
-            <div class='section_2'>
-                <div id = file_upload_box>
-                    <div id='file_upload'>파일 업로드</div>
-    
-                    <div id='drag_upload'>드래그앤드랍구역</div>
-                    <input type="file" id='file' name='file' accept=".doc,.pdf,images/*" multiple>
-                </div>
-            
-                <div id='choose_box'>
-                    <div id = 'select_button_box'>
-                        <form action="/orders/create_order" method="POST">
-                            <input type="hidden" name="csrfmiddlewaretoken" value="lznCkWhGRD4kHLIEYY4nzOOggi0VPW4x4XooV9olP80BpL3NAP7XSxDx3QxldVUJ">
+            <form action="{% url 'create_order' %}" method="POST">
+                {% csrf_token %}
+                <div class='section_2'>
+                    <div id = file_upload_box>
+                        <div id='file_upload'>파일 업로드</div>
+        
+                        <div id='drag_upload'>드래그앤드랍구역</div>
+                        <input type="file" id='file' name='file' accept=".doc,.pdf,images/*" multiple>
+                    </div>
+                
+                    <div id='choose_box'>
+                        <div id = 'select_button_box'>
                             <button id='select_button' type="submit" value="인쇄소 선택하기 ">
                                 <img src="/static/select_button.png" width=100% height = 112px >
                             </button>
-                        </form>
-                        <div id='direct_edit'>
-                            <div id="direct_edit_1">인쇄 용지 설정</div>
-                            <div id ='direct_edit_2'>
-                                <img src="/static/Path_43.png" width=100% height = 6.63px >
+                            <div id='direct_edit'>
+                                <div id="direct_edit_1">인쇄 용지 설정</div>
+                                <div id ='direct_edit_2'>
+                                    <img src="/static/Path_43.png" width=100% height = 6.63px >
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class='edit'>
-                <div id='edit_content'>
-                    용지설정부분
+                <div class='edit'>
+                    <div id='edit_content'>
+                        용지설정부분
+                        <input type="radio" 
+                        name="optionDirection" value="vertical">세로
+                        <input type="radio"
+                        name="optionDirection" value="horizontal">가로
+                        <br>
+                        <input type="radio" 
+                        name="pagePerSheet" value="one">1
+                        <input type="radio"
+                        name="pagePerSheet" value="two">2
+                        <input type="radio"
+                        name="pagePerSheet" value="four">4
+                        <br>
+                        <input type="radio" 
+                        name="optionPrint" value="double">양면
+                        <input type="radio"
+                        name="optionPrint" value="single">단면
+                        <br>
+                        <input type="radio" 
+                        name="optionColor" value="black">흑백
+                        <input type="radio"
+                        name="optionColor" value="color">컬러
+                        <br>
+                        <input type="radio"
+                        name="optionFlip" value="horizontal">옆으로 넘김
+                        <input type="radio" 
+                        name="optionFlip" value="vertical">위로 넘김
+                        <br>
+                        총 페이지 수:
+                        <input type="number" name="numPages">
+                    </div>
                 </div>
-            </div>
 
-            <div class='request_box'>
-                <div id="request_box_content">
-                    <form method="post">
-                        <div style=
-                        "font-size: 1.375rem; 
-                        font-family:'Open Sans', sans-serif;
-                        font-weight: normal;
-                        font-weight: 600;
-                        margin-bottom: 24px;">
-                        추가 요청사항
-                        </div>
-                        <textarea id="request"></textarea>
-                        <button>Save</button>
-                    </form>
+                <div class='request_box'>
+                    <div id="request_box_content">
+                            <div style=
+                            "font-size: 1.375rem; 
+                            font-family:'Open Sans', sans-serif;
+                            font-weight: normal;
+                            font-weight: 600;
+                            margin-bottom: 24px;">
+                            추가 요청사항
+                            </div>
+                            <textarea id="request" name="request"></textarea>
+                    </div>
                 </div>
-            </div>
+                <div class = 'next_button_box'>
+                    <button id='next_button' type="submit" value="인쇄소 선택하기">
+                        <img src="/static/select_button.png" width=100% height = 112px >
+                    </button>
+                </div>
+            </form>
 
-            <div class = 'next_button_box'>
-                <button id='next_button' type="submit" value="인쇄소 선택하기">
-                    <img src="/static/select_button.png" width=100% height = 112px >
-                </button>
-            </div>
         </section>
     
     </div>
