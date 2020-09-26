@@ -72,5 +72,7 @@ class File(models.Model):
         Order, on_delete=models.CASCADE
     )
     order_file = models.FileField(upload_to='doc/%Y/%m/%d/')
+    name = models.CharField(max_length=200)
+    size = models.FloatField()
 
     

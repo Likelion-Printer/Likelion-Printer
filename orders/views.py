@@ -35,6 +35,8 @@ def create_order(request):
     files = request.FILES.getlist('mutipleFiles')
     for file in files:
         file_obj = File()
+        file_obj.name = file.name
+        file_obj.size = file.size # 단위는 byte
         file_obj.order_file = file
         file_obj.order = Order.objects.get(id=id)
         file_obj.save()
