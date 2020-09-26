@@ -149,7 +149,7 @@ a[target='logout'] {
     position: absolute;
     top: 8.375em;
     width: 100%;
-    height: 112px;
+ 
 }
 #direct_edit {
     width: 100%;
@@ -193,6 +193,7 @@ textarea {
     border: none;
     font-family: 'Open Sans', sans-serif;
     font-size: 1.5rem;   
+    resize: none;
 }
 #next_button {
     background-color: #FFFFFF;
@@ -201,14 +202,12 @@ textarea {
     position: absolute;
     top: 0;
     width: 58.8%;
-    height: 112px;
     position: absolute;
     left: 21%;
     right: 21%;
     margin-bottom: 9.375em;
     padding: 0 0;
 }
-
 
 
 
