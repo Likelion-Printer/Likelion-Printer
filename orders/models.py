@@ -1,6 +1,4 @@
 from django.db import models
-from django.core.validators import MinValueValidator, MaxValueValidator
-from datetime import timedelta, timezone, datetime
 
 # Create your models here.
 
@@ -73,4 +71,3 @@ class File(models.Model):
     )
     order_file = models.FileField(upload_to='doc/%Y/%m/%d/')
 
-    
