@@ -66,7 +66,7 @@ def order_result(request, id):
 # @user_passes_test(lambda u: u.is_staff)
 def printerhouse_info(request, id):
 
-    order = Order.objects.filter(printer_house_id = id, is_in_process = 'False').exclude(status = 'picked_up')
+    order = Order.objects.filter(printer_house_id = id, is_in_process = 'False', is_canceled = 'False').exclude(status = 'picked_up')
     order_list = serializers.serialize('json', order)
     response_data = {}
 

@@ -39,17 +39,18 @@
                         <div id = 'shop_select_2'>
                             {% for printer in printerhouse %}
                                 {% if printer.pk == 1 %}
-                                <input type="radio" onclick="getOrderInfo(this.value)"
+                                <input type="radio" onclick="getOrderInfo(this.value)" class="printerHouse" id="h"
                                 name="printerHouse" value="{{printer.pk}}" checked="checked">{{printer.house_name}}
                                 {% else %}
-                                <input type="radio" onclick="getOrderInfo(this.value)"
+                                <input type="radio" onclick="getOrderInfo(this.value)" class="printerHouse"
                                 name="printerHouse" value="{{printer.pk}}">{{printer.house_name}}
                                 {% endif %}
                             {% endfor %}
                         </div>
                     </div>
-                    <div id = 'map_box'>
+                    <div id = 'map_box' style="width:595px; height:595px; float:right;">
                         지도(오른쪽)
+                        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec01915ed2945087fbe50850f5c254"></script>
                     </div>
                 </div>
 
@@ -86,6 +87,7 @@
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/static/orders/javascript/map.js"></script>
     <script type="text/javascript">
 
         // 페이지가 처음 로드될 때
