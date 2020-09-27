@@ -82,6 +82,9 @@ class File(models.Model):
         Order, on_delete=models.CASCADE
     )
     order_file = models.FileField(upload_to='doc/%Y/%m/%d/')
+<<<<<<< HEAD
+>>>>>>> 121ec1dd1877066442ed46706e99b6f2d3a641de
+=======
 >>>>>>> 121ec1dd1877066442ed46706e99b6f2d3a641de
 
     
