@@ -126,6 +126,8 @@ TEMPLATE_CONTEXT_PROCESSORS = ( 'django.core.context_processors.request', )
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'accounts', 'static'),
     os.path.join(BASE_DIR, 'confirmations', 'static'),
@@ -133,5 +135,6 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'config', 'collected_static')
 # print("base dir path:", BASE_DIR)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'config', 'attachment')
 
 AUTH_USER_MODEL = 'accounts.User'

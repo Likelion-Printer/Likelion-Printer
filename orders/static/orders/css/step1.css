@@ -1,0 +1,214 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0 0;
+}
+header {
+    width: 100%;
+    height: 12.500em;
+    position: relative;
+}
+section {
+    width: 100%;
+    height:100%;
+}
+a[target='my_page'] {
+    text-decoration: none;
+    color:#7558ee;
+    letter-spacing: 0.98px;
+}
+a[target='logout'] {
+    text-decoration: none;
+    color:#959dac;
+    letter-spacing: 0.98px;
+}
+.header_right{
+    position: absolute;
+    display: flex;
+    right: 178px;
+    top:116px;
+    box-sizing: border-box;
+    width: 235px;
+    padding:0 0;
+    justify-content: space-between;
+    
+}
+.header_left{
+    position: absolute;
+    width: 2.5%;
+    left: 160px;
+    top:100px;
+    box-sizing: border-box;
+}
+.bar_box {
+    position: absolute;
+    display: flex;
+    box-sizing: border-box;
+    width: 12.500em;
+    height: 1.000em;
+    top: 3.125em;
+    left:43%;
+    right: 43%;
+    margin:0 auto; 
+    box-sizing: border-box;
+    justify-content: space-between;
+
+}
+.section_1{
+    width: 100%;
+    height: 8.500em;
+    position: relative;
+}
+.section_2 {
+    width: 100%;
+    height: 744px;
+    position: relative;
+}
+.edit {
+    width: 100%;
+    height: 67.5em;
+    background-color: palevioletred;
+    
+}
+.request_box {
+    width: 100%;
+    height: 369px;
+    position: relative;
+}
+.next_button_box {
+    width: 100%;
+    height: 262px;
+    position: relative;
+}
+#container {
+    width: 100%;
+}
+#circle {
+    width: 16px;
+    height: 16px;
+    background-color: #D4D2E6;
+    border-radius: 50%;
+
+}
+#my_page{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.188rem;
+}
+#logout{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.188rem;
+
+}
+#file_upload_box {
+    display: flex;
+    height: 314px;
+    width: 58.75%;
+    box-sizing: border-box;
+    position: absolute;
+    left: 21%;
+    right: 21%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#file_upload {
+    font-size: 1.375rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1.1px;
+}
+#choose_box {
+    height: 430px;
+    width: 58.75%;
+    box-sizing: border-box;
+    position: absolute;
+    left: 21%;
+    right: 21%;
+    bottom: 0;
+    
+}
+#drag_upload {
+    width: 98.4%;
+    height: 8.625em;
+    background-color: #FAFAFA;
+    border-radius: 20px;
+}
+#select_button_box {
+    width: 100%;
+    
+}  
+#select_button {
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    top: 8.375em;
+    width: 100%;
+    height: 112px;
+}
+#direct_edit {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 111.85px;
+    background-color: #FFFFFF;
+    position: absolute;
+    bottom: 0;
+
+}
+#direct_edit_1 {
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    color: #959DAC;
+    letter-spacing: 0.8px;
+}
+#edit_content {
+    width: 58.75%;
+    height: 200px;
+    background-color: burlywood;
+    position: absolute;
+    left: 21%;
+    right: 21%;
+}
+#request_box_content {
+    width: 58.75%;
+    height: 336px;
+    position: absolute;
+    left: 21%;
+    right: 21%;
+}
+textarea {
+    width: 100%;
+    height: 187px;
+    background-color: #FAFAFA;
+    box-sizing: border-box;
+    border-radius: 10px 10px 10px 10px;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;   
+}
+#next_button {
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    width: 58.8%;
+    height: 112px;
+    position: absolute;
+    left: 21%;
+    right: 21%;
+    margin-bottom: 9.375em;
+    padding: 0 0;
+}
+
+
+
+
