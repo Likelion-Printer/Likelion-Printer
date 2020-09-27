@@ -4,6 +4,7 @@ from datetime import timedelta, timezone, datetime
 
 # Create your models here.
 
+
 class Order(models.Model):
     is_canceled = models.BooleanField(default=False)
     is_in_process = models.BooleanField(default=True)
@@ -11,7 +12,10 @@ class Order(models.Model):
         "accounts.User", on_delete=models.CASCADE, related_name="orders"
     )
     printer_house = models.ForeignKey(
-        "confirmations.Printer_house", on_delete=models.CASCADE, related_name="orders", null=True
+        "confirmations.Printer_house",
+        on_delete=models.CASCADE,
+        related_name="orders",
+        null=True,
     )
 
     order_time = models.DateTimeField(auto_now=True)
@@ -68,9 +72,16 @@ class Order(models.Model):
 
 
 class File(models.Model):
+<<<<<<< HEAD
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    order_file = models.FileField(upload_to="doc/%Y/%m/%d/")
+    name = models.CharField(max_length=200)
+    size = models.FloatField()
+=======
     order = models.ForeignKey(
         Order, on_delete=models.CASCADE
     )
     order_file = models.FileField(upload_to='doc/%Y/%m/%d/')
+>>>>>>> 121ec1dd1877066442ed46706e99b6f2d3a641de
 
     
