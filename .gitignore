@@ -141,3 +141,9 @@ cython_debug/
 **/migrations/**
 !**/migrations
 !**/migrations/__init__.py
+<<<<<<< HEAD
+=======
+
+
+***/attachment/doc* 
+>>>>>>> 38354d331554a9d5bfe958073c5e05cb6f97527d
