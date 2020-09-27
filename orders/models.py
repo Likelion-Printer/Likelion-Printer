@@ -72,19 +72,7 @@ class Order(models.Model):
 
 
 class File(models.Model):
-<<<<<<< HEAD
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     order_file = models.FileField(upload_to="doc/%Y/%m/%d/")
     name = models.CharField(max_length=200)
     size = models.FloatField()
-=======
-    order = models.ForeignKey(
-        Order, on_delete=models.CASCADE
-    )
-    order_file = models.FileField(upload_to='doc/%Y/%m/%d/')
-<<<<<<< HEAD
->>>>>>> 121ec1dd1877066442ed46706e99b6f2d3a641de
-=======
->>>>>>> 121ec1dd1877066442ed46706e99b6f2d3a641de
-
-    
