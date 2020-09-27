@@ -14,11 +14,17 @@ def my_order(request):
 
 def manage_order(request):
     printer_orders = orders_models.Order.objects.all()
-    return render(request, "manager.html", {"printer_orders": printer_orders})
+    status = orders_models.Order.status
+    print_pending = orders_models.Order.objects.filter(status="pending")
+    print_complete = orders_models.Order.objects.filter(status="complete")
+    return render(
+        request,
+        "manager.html",
+        {"print_pending": print_pending, "print_complete": print_complete,},
+    )
 
 
 def complete(request, id):
     order = orders_models.Order.objects.get(id=id)
-    order.status = 
-    order.delete()
+    pass
     return redirect("manage_order")
