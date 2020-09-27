@@ -53,8 +53,9 @@ def update_order(request, id):
     order = Order.objects.get(id=id)
     printerhouse_id = request.POST.get('printerHouse')
     order.printer_house = Printer_house.objects.get(id=printerhouse_id)
+    order.pickup_time = request.POST.get('pickupTime')
+    order.is_in_process = False
     order.save()
-   # order.pickup_time 설정 필요
     return redirect('payment', id)
 
 def payment(request, id):
