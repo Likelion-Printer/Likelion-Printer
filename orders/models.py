@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
+from datetime import timedelta, timezone, datetime
 
 # Create your models here.
 
@@ -18,9 +20,9 @@ class Order(models.Model):
     )
 
     STATUS = (
-        ("picked_up", "픽업완료"),
-        ("complete", "인쇄완료"), # 인쇄 파일 선택 및 다운된 상태
-        ("pending", "주문대기"), # 손님이 주문 취소 가능한 상태
+        ("confirmed", "주문확인"),
+        ("complete", "인쇄완료"),
+        ("pending", "주문대기"),
     )
     status = models.CharField(max_length=200, choices=STATUS, default="pending")
 
@@ -70,6 +72,5 @@ class File(models.Model):
         Order, on_delete=models.CASCADE
     )
     order_file = models.FileField(upload_to='doc/%Y/%m/%d/')
-    name = models.CharField(max_length=200)
-    size = models.FloatField()
 
+    

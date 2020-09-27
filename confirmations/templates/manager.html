@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <a class="test" href="{% url 'my_order' %}">마이페이지</a>
+      <a href="{% url 'logout' %}">로그아웃</a>
+    </header>
+    매니저 페이지 입니다
+    <div>처리해야 할 주문</div>
+    <div>고객 이름 | 주문 날짜 | 인쇄소 | 픽업예정시각 | 상태 | 결제 금액</div>
+    {% for order in print_pending %}
+    <div>
+      {{order.customer}}&nbsp|&nbsp
+      {{order.order_time}}&nbsp|&nbsp{{order.pickup_time}}&nbsp|&nbsp{{order.status}}&nbsp|&nbsp{{order.cost}}
+      <a href="{% url 'complete' order.id %}">❌</a>
+    </div>
+    {% endfor %}
+
+    <br />
+    <br />
+    <br />
+    <br />
+
+    인쇄완료 주문
+    <div>
+      <div>
+        고객 이름 | 주문 날짜 | 인쇄소 | 픽업예정시각 | 상태 | 결제 금액
+      </div>
+
+      {% for print in print_complete %}
+      <div>
+        {{print.customer}}&nbsp|&nbsp
+        {{print.order_time}}&nbsp|&nbsp{{print.pickup_time}}&nbsp|&nbsp{{print.status}}&nbsp|&nbsp{{print.cost}}
+      </div>
+
+      {% endfor %}
+    </div>
+    <div>처리해야 할 주문</div>
+    <div>고객 이름 | 주문 날짜 | 인쇄소 | 픽업예정시각 | 상태 | 결제 금액</div>
+  </body>
+</html>
