@@ -17,7 +17,7 @@
     <div>
       {{order.customer}}&nbsp|&nbsp
       {{order.order_time}}&nbsp|&nbsp{{order.pickup_time}}&nbsp|&nbsp{{order.status}}&nbsp|&nbsp{{order.cost}}
-      <a href="{% url 'complete' order.id %}">❌</a>
+      <a href="{% url 'complete' order.id %}">✔</a>
     </div>
     {% endfor %}
 
