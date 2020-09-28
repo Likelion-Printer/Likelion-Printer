@@ -10,11 +10,11 @@
       <a class="test" href="{% url 'my_order' %}">마이페이지</a>
       <a href="{% url 'logout' %}">로그아웃</a>
     </header>
-    매니저 페이지 입니다
+    {{manager_printer}} 인쇄소의 매니저 페이지 입니다
     <div>처리해야 할 주문</div>
-    <div>고객 이름 | 주문 날짜 | 인쇄소 | 픽업예정시각 | 상태 | 결제 금액</div>
+    <div>고객 이름 | 주문 날짜  | 픽업예정시각 | 상태 | 결제 금액</div>
     {% for order in print_pending %}
-    <div>
+    <div>manager_printer
       {{order.customer}}&nbsp|&nbsp
       {{order.order_time}}&nbsp|&nbsp{{order.pickup_time}}&nbsp|&nbsp{{order.status}}&nbsp|&nbsp{{order.cost}}
       <a href="{% url 'complete' order.id %}">✔</a>

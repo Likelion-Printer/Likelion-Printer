@@ -8,7 +8,7 @@ from . import models
 @admin.register(models.User)
 class CustomUserAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
-        ("Custom Profile", {"fields": ("nickname", "current_balance",)},),
+        ("Custom Profile", {"fields": ("nickname", "current_balance", "my_printer", "is_manager")},),
     )
     list_display = (
         "username",
