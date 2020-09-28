@@ -12,14 +12,4 @@ class Printer_house(models.Model):
     def __str__(self):
         return self.house_name
 
-    def total_income(self):
-        # now = datetime.datetime.now()
-        # last_month = now - datetime.timedelta(weeks=4)
-        # now_date = now.strftime("%Y-%M-%D")
-        # last_month_date = last_month.strftime("%Y-%M-%D")
-        temp_sum = 0
-        # temp = orders_models.objects.filter(date__range=["last_month_date", "now_date"])
-        for order in Order.objects.all():
-            temp_sum += order.cost()
-        return temp_sum
 
