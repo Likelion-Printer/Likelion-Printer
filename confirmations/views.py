@@ -25,6 +25,12 @@ def manage_order(request):
 
 
 def complete(request, id):
-    order = orders_models.Order.objects.get(id=id)
-    pass
+    order = orders_models.Order.objects.filter(id=id)
+    order.update(status="complete")
+    return redirect("manage_order")
+
+
+def take_back(reqeust, id):
+    order = orders_models.Order.objects.filter(id=id)
+    order.update(status="pending")
     return redirect("manage_order")

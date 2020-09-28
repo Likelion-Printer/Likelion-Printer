@@ -36,6 +36,7 @@
       <div>
         {{print.customer}}&nbsp|&nbsp
         {{print.order_time}}&nbsp|&nbsp{{print.pickup_time}}&nbsp|&nbsp{{print.status}}&nbsp|&nbsp{{print.cost}}
+        <a href="{% url 'take_back' print.id%}">⟲</a>
       </div>
 
       {% endfor %}
