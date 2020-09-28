@@ -6,7 +6,7 @@ from orders.models import Order
 class Printer_house(models.Model):
 
     house_name = models.CharField(max_length=200)
-    phone_nubmer = models.CharField(max_length=13)
+    phone_number = models.CharField(max_length=13)
     address = models.CharField(max_length=200)
 
     def __str__(self):
