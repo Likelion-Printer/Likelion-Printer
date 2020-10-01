@@ -4,6 +4,7 @@ from confirmations.models import *
 from django.http import HttpResponse
 import json
 from django.core import serializers
+from PyPDF2 import PdfFileReader
 
 # Create your views here.
 def home(request):
@@ -40,6 +41,10 @@ def create_order(request):
         file_obj.order_file = file
         file_obj.order = Order.objects.get(id=id)
         file_obj.save()
+        # <pdf 페이지 수 구하기>
+        # pdf = PdfFileReader(open(file_obj.order_file.path,'rb'))
+        # print(pdf.getNumPages())
+        # word, hwp
     return redirect('step2' , id)
 
 def step2(request, id):
