@@ -4,7 +4,6 @@ from datetime import timedelta, timezone, datetime
 
 # Create your models here.
 
-
 class Order(models.Model):
     is_canceled = models.BooleanField(default=False)
     is_in_process = models.BooleanField(default=True)
@@ -19,12 +18,10 @@ class Order(models.Model):
     )
 
     order_time = models.DateTimeField(auto_now=True)
-    pickup_time = models.DateTimeField(
-        auto_now=False, default=datetime.now() + timedelta(seconds=3600)
-    )
+    pickup_time = models.DateTimeField(null=True)
 
     STATUS = (
-        ("confirmed", "주문확인"),
+        ("picked_up", "픽업완료"),
         ("complete", "인쇄완료"),
         ("pending", "주문대기"),
     )
@@ -70,6 +67,9 @@ class Order(models.Model):
         now_date = now.strftime("%Y%m%d")
         return now_date + str(self.id)
 
+    # def set_time(self):
+    #     now = timezone.localtime(timezone.now())
+    #     self.order_time = now
 
 class File(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)

@@ -45,8 +45,6 @@ def create_order(request):
 def step2(request, id):
     order = Order.objects.get(id=id)
     printerhouse = Printer_house.objects.all()
-    # 프린트 가게 order = Order(printer_house_id = 1)
-    # 픽업 시간
     return render(request, 'step2.html', { 'order' : order, 'printerhouse' : printerhouse })
 
 def update_order(request, id):
