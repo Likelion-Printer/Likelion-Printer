@@ -1,9 +1,9 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from datetime import timedelta, timezone, datetime
+# from subprocess import check_output
 
 # Create your models here.
-
 
 class Order(models.Model):
     is_canceled = models.BooleanField(default=False)
@@ -19,12 +19,10 @@ class Order(models.Model):
     )
 
     order_time = models.DateTimeField(auto_now=True)
-    pickup_time = models.DateTimeField(
-        auto_now=False, default=datetime.now() + timedelta(seconds=3600)
-    )
+    pickup_time = models.DateTimeField(null=True)
 
     STATUS = (
-        ("confirmed", "주문확인"),
+        ("picked_up", "픽업완료"),
         ("complete", "인쇄완료"),
         ("pending", "주문대기"),
     )
@@ -70,9 +68,21 @@ class Order(models.Model):
         now_date = now.strftime("%Y%m%d")
         return now_date + str(self.id)
 
+    # def set_time(self):
+    #     now = timezone.localtime(timezone.now())
+    #     self.order_time = now
 
 class File(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     order_file = models.FileField(upload_to="doc/%Y/%m/%d/")
     name = models.CharField(max_length=200)
     size = models.FloatField()
+    # num_of_pages = models.IntegerField()
+
+    # def set_num_pages(self, pdf_path):
+    #     output = check_output(["pdfinfo", pdf_path]).decode()
+    #     pages_line = [line for line in output.splitlines() if "Pages:" in line][0]
+    #     num_pages = int(pages_line.split(":")[1])
+    #     self.num_of_pages = num_pages
+    
+
