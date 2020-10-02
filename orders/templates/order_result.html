@@ -4,13 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
 </head>
 <body>
-    <header>
-        <a class="test" href="{% url 'my_order' %}">마이페이지</a>
-        <a href="{% url 'logout' %}">로그아웃</a>
-    </header>
-    
-    주문완료 페이지입니다.
+    <div class = 'container'>
+
+        <header>
+            
+                <div class = 'header-right'>
+                    <span id = 'my_page'><a href="{% url 'my_order' %}" target='my_page'>마이페이지</a></span>
+                    <span id = 'logout'><a href="{% url 'logout' %}" target='logout'>로그아웃</a></span>
+                </div>
+                <div class= 'header-left'>
+                    <div class = 'logo'>로고자리</div>
+                </div>
+            
+        </header>
+
+        <section>
+            
+                <div class = 'bar'>
+                    <div id='bar_fourth'>동그래미 바 </div>
+                </div>
+                <div class = 'result_1'>
+                    <div id='result_1_1'>
+                        주문완료
+                    </div>
+                    <div id='result_1_2'>주문취소</div>
+                </div>
+                <div class = 'result_2'>
+                    <div id='pickup_time'>픽업시간</div>
+                    <div id='timetable'>시간표삽입자리</div>
+                </div>
+                <div class='result_3'>
+                    <p style="text-align: center; font-size:1.8em;  ">{{order.printer_house.house_name}}</p>   
+                    <p style="text-align: center; font-size:1.4em; ">{{order.printer_house.address}}</p>
+                    <p style="text-align: center; font-size:1.4em; ">{{order.printer_house.phone_nubmer}}</p>   
+                    <div id='map'><a href='{지도 url}'>길찾기</a></div>
+                </div>
+                <div class = 'result_4'>
+                    <div id = 'result_4_upper'>
+                        <span id="left" style="font-size: 1.4em;">프린트 리스트</span>
+                        <span id='right' style="font-size: 1.4em; background-color:#7558EE">설정확인버튼자리(js)</span>
+                    </div>
+                    <div id='result_4_down'>
+                        <div id='print_list'>프린드리스트들 들어올 자리</div>
+                    </div>
+                    <div id='receipt'>
+                        <div>영수증버튼(js)</div>
+                    </div>
+                </div>
+            
+        </section>
+        
+        
+    </div>
 </body>
 </html>

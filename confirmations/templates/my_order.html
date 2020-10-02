@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <a class="test" href="{% url 'my_order' %}">마이페이지</a>
-        <a href="{% url 'logout' %}">로그아웃</a>
+      <a class="test" href="{% url 'my_order' %}">마이페이지</a>
+      <a href="{% url 'logout' %}">로그아웃</a>
     </header>
-    내 주문 페이지입니다.
-</body>
+
+    {{order_user}}의 주문 페이지입니다.
+    <div>나의 현재 금액: {{order_user.current_balance}}</div>
+
+    <div>주문 날짜 | 인쇄소 | 픽업예정시각 | 상태 | 결제 금액</div>
+    {% for order in myorder %}
+
+    <div>
+      {{order.order_time}}&nbsp|{{order.printer_house}}&nbsp|{{order.pickup_time}}&nbsp|{{order.status}}&nbsp|{{order.cost}}
+    </div>
+    {% endfor %}
+  </body>
 </html>
