@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from . models import *
 from confirmations.models import *
+from django.http import HttpResponse
+import json
+from django.core import serializers
 
 # Create your views here.
 def home(request):
@@ -30,9 +33,10 @@ def create_order(request):
     order.save()
     id = order.pk
     files = request.FILES.getlist('mutipleFiles')
-    print(files)
     for file in files:
         file_obj = File()
+        file_obj.name = file.name
+        file_obj.size = file.size # 단위는 byte
         file_obj.order_file = file
         file_obj.order = Order.objects.get(id=id)
         file_obj.save()
@@ -40,9 +44,19 @@ def create_order(request):
 
 def step2(request, id):
     order = Order.objects.get(id=id)
+    printerhouse = Printer_house.objects.all()
     # 프린트 가게 order = Order(printer_house_id = 1)
     # 픽업 시간
-    return render(request, 'step2.html', { 'order' : order })
+    return render(request, 'step2.html', { 'order' : order, 'printerhouse' : printerhouse })
+
+def update_order(request, id):
+    order = Order.objects.get(id=id)
+    printerhouse_id = request.POST.get('printerHouse')
+    order.printer_house = Printer_house.objects.get(id=printerhouse_id)
+    order.pickup_time = request.POST.get('pickupTime')
+    order.is_in_process = False
+    order.save()
+    return redirect('payment', id)
 
 def payment(request, id):
     order = Order.objects.get(id=id)
@@ -51,3 +65,20 @@ def payment(request, id):
 def order_result(request, id):
     order = Order.objects.get(id=id)
     return render(request, 'order_result.html', { 'order' : order })
+
+# @user_passes_test(lambda u: u.is_staff)
+def printerhouse_info(request, id):
+
+    order = Order.objects.filter(printer_house_id = id, is_in_process = 'False', is_canceled = 'False').exclude(status = 'picked_up')
+    order_list = serializers.serialize('json', order)
+    response_data = {}
+
+    try:
+        response_data['result'] = 'Success'
+        response_data['message'] = order_list
+
+    except:
+        response_data['result'] = 'Failed'
+        response_data['message'] = 'Failed'
+
+    return HttpResponse(json.dumps(response_data), content_type="application/json")

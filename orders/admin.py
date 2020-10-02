@@ -7,6 +7,7 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = (
         "order_num",
         "customer",
+        "printer_house",
         "pickup_time",
         "order_time",
         "status",
