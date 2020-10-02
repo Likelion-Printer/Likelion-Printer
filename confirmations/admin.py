@@ -8,5 +8,4 @@ class Printer_house(admin.ModelAdmin):
         "house_name",
         "phone_number",
         "address",
-        "total_income",
     ]

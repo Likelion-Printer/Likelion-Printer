@@ -48,7 +48,9 @@ def manage_stats(request):
         total_sum = 0
 
         # house = models.Printer_house.objects.filter(id= request.user.my_printer.id)
-        for order in orders_models.Order.objects.filter(order_time__month=this_month, printer_house =request.user.my_printer ):
+        for order in orders_models.Order.objects.filter(
+            order_time__month=this_month, 
+        printer_house =request.user.my_printer ):
             total_sum += order.cost()
         return render(request, "manager_stats.html",{"total_income":total_sum})
     else:
