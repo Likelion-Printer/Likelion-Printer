@@ -18,5 +18,7 @@ from django.urls import path, include
 import confirmations.views
 
 urlpatterns = [
-    path('my_order/', confirmations.views.my_order, name='my_order'),
+    path("my_order/", confirmations.views.my_order, name="my_order"),
+    path("manage_order/", confirmations.views.manage_order, name="manage_order"),
+    path("complete/<int:id>", confirmations.views.complete, name="complete"),
 ]
