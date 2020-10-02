@@ -25,26 +25,30 @@
         <a>로그인</a>
         <br/>
         <form method="POST" action="{% url 'login' %}">
-        {% csrf_token %}
-        <br />
-        <input
-            style="width: 585px; height: 72px"
-            name="username"
-            type="text"
-            value="ID 혹은 전화번호"
-        />
-        <br />
-        <br />
-        <input
-            style="width: 585px; height: 72px"
-            name="password"
-            type="password"
-            value="비밀번호"
-        />
-        <br />
-        <br />
+            {% csrf_token %}
+            <br/>
+            <input
+                style="width: 30%; height: 10%"
+                name="username"
+                type="text"
+                value="ID 혹은 전화번호"
+            />
+            <br />
+            <br />
+            <input
+                style="width: 30%; height: 10%"
+                name="password"
+                type="password"
+                value="비밀번호"
+            />
+            <br />
+            <br />
 
-        <input style="width: 45pt; height: 19pt" type="submit" value="Login" />
+            <div class = 'login_button_box'>
+                <button id='login_button' type="submit" value="로그인">
+                    <img src="/static/main_button.png">
+                </button>
+            </div>
         </form>
     </div>
     <script>
@@ -53,8 +57,8 @@
         alert(error);
       }
     </script>
-
-    <a href="{% url 'signup' %}">회원가입</a>
-    <a href="{% url 'staff_login' %}">대시보드 로그인</a>
+    <div id='submit'>
+        <a href="{% url 'staff_login' %}">대시보드 로그인</a>
+    </div>
   </body>
 </html>

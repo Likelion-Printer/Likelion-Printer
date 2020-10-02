@@ -31,14 +31,37 @@ header {
 }
 #form{
     width: 100%;
-    height: 200px;
-    margin: 24px 0 44px 0;
+    height: 200%;
     text-align: center;
-    display: flex;
     justify-content: center;
     font-family: 'Open Sans', sans-serif;
     font-size: 1.375rem;
     color: #959DAC;
-    vertical-align: middle;
+    margin: 10% auto;
 }
-
+#submit{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.675rem;
+    color: #959DAC;
+}
+.login_button_box {
+    width: 100%;
+    height: 74px;
+    position: relative;
+}
+#login_button {
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    width: 58.8%;
+    position: absolute;
+    left: 21%;
+    right: 21%;
+    margin-bottom: 9.375em;
+    padding: 0 0;
+}
