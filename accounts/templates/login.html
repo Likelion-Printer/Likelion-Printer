@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
+    {% load static %}
+        <link rel='stylesheet' type='text/css' href="/static/account/css/login.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
 </head>
+    
 <body>
+    <div id = 'container'>
+        <header>
+            <div class = 'header_right'>
+                <div id='blank'></div>
+                <a href="{% url 'login' %}"><img style= "width: 104px; height: 40px;" src="/static/main_button.png" alt="로그인"></a>
+            </div>
+            
+            <div class = 'header_left'>
+                <a href= "{% url 'home' %}" ><img style="width: 48px; height: 54.47px;" src="/static/Group-1.png" alt="로고"></a>
+            </div>
+        </header>
+    </div>
+    <div id = 'form'>
+        <a>로그인</a>
+        <br/>
+        <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <br />
+        <input
+            style="width: 585px; height: 72px"
+            name="username"
+            type="text"
+            value="ID 혹은 전화번호"
+        />
+        <br />
+        <br />
+        <input
+            style="width: 585px; height: 72px"
+            name="password"
+            type="password"
+            value="비밀번호"
+        />
+        <br />
+        <br />
 
-  </head>
-  <body>
-
-    <header>
-      <a href="{% url 'login' %}">로그인</a>
-    </header>
-
-    <h1>Login</h1>
-
-    <form method="POST" action="{% url 'login' %}">
-      {% csrf_token %} Username:
-      <br />
-      <input
-        style="width: 110pt; height: 18pt"
-        name="username"
-        type="text"
-        value=""
-      />
-      <br /><br />
-      Password:
-      <br />
-      <input
-        style="width: 110pt; height: 18pt"
-        name="password"
-        type="password"
-        value=""
-      />
-      <br />
-      <br />
-      <input style="width: 45pt; height: 19pt" type="submit" value="Login" />
-    </form>
+        <input style="width: 45pt; height: 19pt" type="submit" value="Login" />
+        </form>
+    </div>
     <script>
       const error = "{{error}}";
       if (error) {

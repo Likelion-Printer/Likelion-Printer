@@ -1,3 +1,4 @@
+
 html {
     width: 100%;
     height: 100%;
@@ -26,16 +27,29 @@ a[target='logout'] {
     color:#959dac;
     letter-spacing: 0.98px;
 }
+input[type='radio'] {
+    display: none;
+}
+label {
+    display:inline-block;
+    width:51%;
+    height:128px;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-color: royalblue;
+}
+input:checked + label.direction_vertical {
+    background-color:red;
+}
 .header_right{
     position: absolute;
     display: flex;
-    right: 178px;
+    right: 160px;
     top:116px;
     box-sizing: border-box;
     width: 235px;
     padding:0 0;
-    justify-content: space-between;
-    
+    justify-content: space-between;    
 }
 .header_left{
     position: absolute;
@@ -65,12 +79,12 @@ a[target='logout'] {
 }
 .section_2 {
     width: 100%;
-    height: 744px;
+    height: 550px;
     position: relative;
 }
 .edit {
     width: 100%;
-    height: 67.5em;
+    height: 67.5rem;
     background-color: palevioletred;
     
 }
@@ -84,6 +98,7 @@ a[target='logout'] {
     height: 262px;
     position: relative;
 }
+
 #container {
     width: 100%;
 }
@@ -114,7 +129,7 @@ a[target='logout'] {
     left: 21%;
     right: 21%;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 #file_upload {
     font-size: 1.375rem;
@@ -123,7 +138,7 @@ a[target='logout'] {
     letter-spacing: 1.1px;
 }
 #choose_box {
-    height: 430px;
+    height: 100px;
     width: 58.75%;
     box-sizing: border-box;
     position: absolute;
@@ -149,7 +164,7 @@ a[target='logout'] {
     position: absolute;
     top: 8.375em;
     width: 100%;
-    height: 112px;
+ 
 }
 #direct_edit {
     width: 100%;
@@ -171,7 +186,7 @@ a[target='logout'] {
 }
 #edit_content {
     width: 58.75%;
-    height: 200px;
+    height: 67.5rem;
     background-color: burlywood;
     position: absolute;
     left: 21%;
@@ -193,6 +208,7 @@ textarea {
     border: none;
     font-family: 'Open Sans', sans-serif;
     font-size: 1.5rem;   
+    resize: none;
 }
 #next_button {
     background-color: #FFFFFF;
@@ -201,7 +217,6 @@ textarea {
     position: absolute;
     top: 0;
     width: 58.8%;
-    height: 112px;
     position: absolute;
     left: 21%;
     right: 21%;
@@ -209,6 +224,70 @@ textarea {
     padding: 0 0;
 }
 
+#dropZone {
+    background-color: #FAFAFA;
+    width: 100%;
+    height: 200px;
+    margin: 24px 0 44px 0;
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 1.250rem;
+    color: #959DAC;
+    border-radius: 20px;
+}
 
-
-
+#fileDragDesc {
+    width: 100%; 
+    height: 10px;
+    margin-left: auto; 
+    margin-right: auto; ; 
+    text-align: center; 
+    vertical-align:middle;
+    background-color: #FAFAFA;
+   
+   
+}
+#dropZone_ {
+    width: 100%;
+    border: 0px;
+    padding: 0 20px 0 20px;
+    color: #3B3D40;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.375rem;
+}
+#delete_button {
+    color: red;
+    border: none;
+    background-image: url(/static/Group_10.png);
+    background-size: cover;
+    width: 17.49px;
+    height: 17.49px;
+    background-color: #FAFAFA;
+}
+#edit_content_1 {
+    width: 51%;
+    height: 298px;
+    background-color: skyblue;
+}
+#edit_content_title{
+    font-family:'Open Sans', sans-serif;
+    font-size:1.375rem;
+    font-weight: 600;
+    color: #3E3E3E;
+    letter-spacing: 0.069rem;
+    margin-bottom: 18px;
+}
+#selected{
+    width:56%; 
+    height: 247px; 
+    background-color: blue ; 
+    border-radius: 10px; 
+    margin-right: 21px;
+}

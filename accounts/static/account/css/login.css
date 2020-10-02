@@ -1,0 +1,44 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0 0;
+}
+header {
+    width: 100%;
+    height: 12.500em;
+    position: relative;
+}
+.header_right{
+    position: absolute;
+    display: flex;
+    right: 178px;
+    top:116px;
+    box-sizing: border-box;
+    width: 235px;
+    padding:0 0;
+    justify-content: space-between;    
+}
+.header_left{
+    position: absolute;
+    width: 2.5%;
+    left: 160px;
+    top:100px;
+    box-sizing: border-box;
+}
+#form{
+    width: 100%;
+    height: 200px;
+    margin: 24px 0 44px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.375rem;
+    color: #959DAC;
+    vertical-align: middle;
+}
+
