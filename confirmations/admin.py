@@ -6,7 +6,6 @@ from . import models
 class Printer_house(admin.ModelAdmin):
     list_display = [
         "house_name",
-        "phone_nubmer",
+        "phone_number",
         "address",
-        "total_income",
     ]
