@@ -1,12 +1,18 @@
 from django.shortcuts import render, redirect
-from . models import *
+from .models import *
 from confirmations.models import *
 from django.http import HttpResponse
 import json
 from django.core import serializers
-from PyPDF2 import PdfFileReader
+from django.contrib.auth import get_user_model
+
+#from PyPDF2 import PdfFileReader
 
 # Create your views here.
+
+User = get_user_model()
+
+
 def home(request):
     return render(request, 'home.html')
 
