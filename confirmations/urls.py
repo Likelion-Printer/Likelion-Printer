@@ -20,5 +20,7 @@ import confirmations.views
 urlpatterns = [
     path("my_order/", confirmations.views.my_order, name="my_order"),
     path("manage_order/", confirmations.views.manage_order, name="manage_order"),
+    path("manage_stats/", confirmations.views.manage_stats, name="manage_stats"),
     path("complete/<int:id>", confirmations.views.complete, name="complete"),
+    path("take_back/<int:id>", confirmations.views.take_back, name="take_back"),
 ]

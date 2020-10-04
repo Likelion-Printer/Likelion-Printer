@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가게 통계 페이지</title>
+  </head>
+  <body>
+    <header>
+      <a class="test" href="{% url 'my_order' %}">마이페이지</a>
+      <a href="{% url 'logout' %}">로그아웃</a>
+    </header>
+    통계 페이지 입니다. <br/><br/><br/>
+    이번달 매출: {{total_income}}
+    
+  </body>
+</html>
