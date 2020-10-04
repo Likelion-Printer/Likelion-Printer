@@ -23,5 +23,5 @@ urlpatterns = [
     path('logout/', accounts.views.logout, name="logout"),
     path('staff_login/', accounts.views.staff_login, name='staff_login'),
     path('login/kakao', accounts.views.kakao_login, name= "kakao-login"),
-    path('login/kakao/callback', accounts.views.kakao_callback, name= "kakao-callback"),
+    # path('login/kakao/callback', accounts.views.kakao_callback, name= "kakao-callback"),
 ]
