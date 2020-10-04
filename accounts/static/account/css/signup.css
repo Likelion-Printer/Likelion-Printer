@@ -37,22 +37,21 @@ header {
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     color: #959DAC;
-    background-color: #959DAC;
     margin: 10% auto;
 }
-.login_button_box {
-    width: 50%;
+.signup_button_box {
+    width: 70%;
     height: 74px;
     position: relative;
 }
-#login_button {
+#signup_button {
     background-color: #FFFFFF;
     border: none;
     border-radius: 5px;
     position: absolute;
+    margin: 0 auto;
     top: 0;
-    width: 58.8%;
-    position: absolute;
+    width: 100%;
     left: 21%;
     right: 21%;
     margin-bottom: 9.375em;
