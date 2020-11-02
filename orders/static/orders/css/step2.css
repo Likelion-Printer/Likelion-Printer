@@ -16,6 +16,11 @@ section {
     width: 100%;
     height:100%;
 }
+button{
+    border: none;
+    background-color: transparent;
+
+}
 a[target='my_page'] {
     text-decoration: none;
     color:#7558ee;
@@ -26,6 +31,10 @@ a[target='logout'] {
     color:#959dac;
     letter-spacing: 0.98px;
 }
+input[type='radio'] {
+    display: none;
+}
+
 .header_right{
     position: absolute;
     display: flex;
@@ -68,6 +77,35 @@ a[target='logout'] {
     position: relative;
     background-color: cadetblue;
 }
+.pk_box {
+    position: relative;
+}
+.infowindow{
+    width:120px; 
+    height:45px; 
+    text-align:center; 
+    background-color:#7558EE;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal; 
+    font-size: 16px; 
+    color:#FFFFFF; 
+    display:flex; 
+    justify-content:center; 
+    align-items:center;
+    border-radius: 5px;
+}   
+.pickup_time_select{
+    height: 1755px;
+    width: 100%;
+    background-color: aqua;   
+}
+#shop_select_box_left {
+    width: 45%;
+    height: 620px;
+    background-color: crimson;
+    position: relative;
+    
+}
 #my_page{
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
@@ -90,6 +128,83 @@ a[target='logout'] {
     position: absolute;
     left: 21%;
     right: 21%;
-    background-color: crimson;
+    background-color: blue;
     display: flex;
+}
+#map_box {
+    width: 55%;
+   
+    border-radius: 10px;
+    margin: 11px 0 14px 25px;
+}
+#shop_select_1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1.375rem;
+    letter-spacing: 1.1px;
+}
+#shop_select_2 {
+    width: 100%;
+    margin-top: 30px;
+    position: relative;
+}
+#pk_num {
+    font-size: 2.250rem;
+    color: #959DAC;
+    font-weight: bold;
+    position: absolute;
+    left: 6%;
+    top: 28px;
+    bottom: 87px;
+    width: 4.8%;
+    height: 43px;
+}
+#house_name {
+    position: absolute;
+    font-size: 1.375rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    color: #3E3E3E;
+    top: 10px;
+    
+}
+#address{
+    position: absolute;
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+    color: #3E3E3E;
+    bottom: 34px;
+    
+}
+#phone_number{
+    position: absolute;
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+    color:#7558EE;
+    bottom: 9px;
+    
+}
+#house_photo {
+    position: absolute;
+    right: 0;
+    height: 115px;
+    width: 115px;
+    background-color: brown;
+}
+#shop_select_3 {
+    position: absolute;
+    width: 100%;
+    bottom: 15px;
+}
+.printhouse_box_2 {
+    width: 100%;
+    height: 158px;
+    margin-bottom: 24px;
+    background-color: #FAFAFA;
+    display: block;
+    
+    border-radius: 5px;
+    
 }

@@ -1,13 +1,14 @@
 function radio_Test1() {
     let radio_chk1 = document.getElementById('rd1');
     let radio_chk2 = document.getElementById('rd2');
-    
+   
     let vertical_img = document.getElementById('vertical_img');
     let horizon_img = document.getElementById('horizon_img');
 
 
     if (radio_chk1.checked == true) {
         vertical_img.src = '/static/garo_clicked.png'
+        
     } else {
         vertical_img.src = '/static/garo.png'
     }
