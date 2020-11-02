@@ -4,7 +4,7 @@ from confirmations.models import *
 from django.http import HttpResponse
 import json
 from django.core import serializers
-from PyPDF2 import PdfFileReader
+# from PyPDF2 import PdfFileReader
 
 # Create your views here.
 def home(request):
