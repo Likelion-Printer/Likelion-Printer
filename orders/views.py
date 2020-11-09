@@ -21,6 +21,10 @@ def step1(request):
         return redirect('error_home')
     return render(request, 'step1.html')
 
+    
+def step3(request):
+    return render(request, 'step3.html')
+
 def error_home(request):
     msg = 'error'
     return render(request, 'home.html', {'msg': msg})

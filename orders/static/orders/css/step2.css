@@ -97,7 +97,17 @@ input[type='radio'] {
 .pickup_time_select{
     height: 1755px;
     width: 100%;
+    position: relative;
     background-color: aqua;   
+}
+.pickup_time_select_box{
+    width: 58.75%;
+    height: 1605px;
+    position: absolute;
+    left: 21%;
+    right: 21%;
+    background-color: beige;
+
 }
 #shop_select_box_left {
     width: 45%;
