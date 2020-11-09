@@ -9,10 +9,10 @@ verify_ssl = true
 django = "*"
 black = "*"
 django-seed = "*"
-
 pypdf = "*"
 requests = "*"
-
+pypdf = "*"
+requests = "*"
 
 [requires]
 python_version = "3.8"

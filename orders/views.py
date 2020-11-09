@@ -6,7 +6,7 @@ import json
 from django.core import serializers
 from django.contrib.auth import get_user_model
 
-#from PyPDF2 import PdfFileReader
+# from PyPDF2 import PdfFileReader
 
 # Create your views here.
 
