@@ -22,6 +22,6 @@ urlpatterns = [
     path("manage_order/", confirmations.views.manage_order, name="manage_order"),
     path("manage_stats/", confirmations.views.manage_stats, name="manage_stats"),
     path("complete/<int:id>", confirmations.views.complete, name="complete"),
-    path("cancel/", confirmations.view.cancel, name="cancel"),
+    path("cancel/", confirmations.views.cancel, name="cancel"),
     path("take_back/<int:id>", confirmations.views.take_back, name="take_back"),
 ]
