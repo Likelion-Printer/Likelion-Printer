@@ -9,6 +9,7 @@ class User(AbstractUser):
     my_printer = models.ForeignKey(
         "confirmations.Printer_house", on_delete=models.CASCADE, null=True
     )
+    is_manager = models.BooleanField(default = False)
 
     def __str__(self):
         return self.username

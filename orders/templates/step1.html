@@ -8,11 +8,7 @@
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel='stylesheet' type='text/css' href="/static/orders/css/step1.css" />
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="/static/orders/js/drag_drop.js"></script>
-    <script src="/static/orders/js/edit.js"></script>
-
-
+    
 </head>
 
 <body>
@@ -79,47 +75,88 @@
 
                         <div id='edit_content_1'>
                             <div id='edit_content_title'>용지설정</div>
-                            <div style="display: flex;">
+                            <div style="display: flex; padding-right: 100px;">
                                 <div id = selected>
-                                    <input type="radio" id= "rd1" name="optionDirection" value="vertical" onclick='radio_Test()'; checked/>
-                                    <label for='rd1'><img id='vertical_img' src='/static/Subtraction_3.png'></label>
+                                    <input type="radio" id= "rd1" name="optionDirection" value="vertical" onclick='radio_Test1()'; checked/>
+                                    <label for='rd1'><img id='vertical_img' src='/static/garo.png' class = 'image_setting' ></label>
                                 </div>
 
                                 <div id="selected">
-                                    <input type="radio" id='rd2' name="optionDirection" value="horizon" onclick='radio_Test()'; checked />
-                                    <label for="rd2"><img id='horizon_img' src='/static/Group_116.png'></label>
+                                    <input type="radio" id='rd2' name="optionDirection" value="horizon" onclick='radio_Test1()'; checked />
+                                    <label for="rd2"><img id='horizon_img' class = 'image_setting' src='/static/sero.png'></label>
                                 </div>
                             </div>
                         </div>
                             
                        <div id='edit_content_2'>
-                            <input type="radio" 
-                            name="pagePerSheet" value="one">1
-                            <input type="radio"
-                            name="pagePerSheet" value="two">2
-                            <input type="radio"
-                            name="pagePerSheet" value="four">4
+                           <div id="edit_content_title">시트당 페이지 수</div>
+                           <div style="display: flex">
+                                <div id='selected'>
+                                    <input type="radio" id='rd3' name="pagePerSheet" value="one" onclick="radio_Test2()"; checked />
+                                    <label for='rd3'><img id='one_img' class = 'image_setting' src='/static/one.png'></label>
+                                </div>
+                                <div id='selected'>
+                                    <input type="radio" id="rd4" name="pagePerSheet" value="two" onclick="radio_Test2()"; checked />
+                                    <label for='rd4'><img id='two_img' class = 'image_setting' src='/static/two.png'></label>
+                                </div>
+                                <div id="selected">
+                                    <input type="radio" id="rd5" name="pagePerSheet" value="four" onclick="radio_Test2()"; checked/>
+                                    <label for='rd5'><img id='four_img' class = 'image_setting' src='/static/four.png'></label>
+
+                                </div>
+                            </div>
                         </div>
                         <div id='edit_content_3'>
-                            <input type="radio" 
-                            name="optionPrint" value="double">양면
-                            <input type="radio"
-                            name="optionPrint" value="single">단면
+                            <div id="edit_content_title">단면/양면(+30원/장)</div>
+                            <div style="display: flex; padding-right: 100px;">
+                                <div id="selected">
+                                    <input type="radio" id="rd6" name="optionPrint" value="single" onclick="radio_Test3()"; checked/>
+                                    <label for='rd6'><img id='single_img' class = 'image_setting' src='/static/single.png'></label>
+                                </div>
+                                <div id="selected">
+                                    <input type="radio" id='rd7' name="optionPrint" value="double" onclick="radio_Test3()"; checked/>
+                                    <label for='rd7'><img id='double_img' class = 'image_setting' src='/static/double.png'></label>
+                                </div>
+                            </div>                            
                         </div>
+
                         <div id='edit_content_4'>
-                            <input type="radio" 
-                            name="optionColor" value="black">흑백
-                            <input type="radio"
-                            name="optionColor" value="color">컬러
+                            <div id="edit_content_title">흑백/컬러(+30원/장)</div>
+                            <div style="display: flex; padding-right: 100px;">
+                                <div id="selected">
+                                    <input type="radio" id='rd8' name="optionColor" value="black" onclick="radio_Test4()"; checked/>
+                                    <label for='rd8'><img id='black_img' class = 'image_setting' src='/static/black.png'></label>
+                                </div>
+                                <div id="selected">
+                                    <input type="radio" id="rd9" name="optionColor" value="color" onclick="radio_Test4()"; checked/>
+                                    <label for='rd9'><img id='color_img' class = 'image_setting' src='/static/color.png'></label>
+                                </div>               
+                            </div>                                                    
                         </div>
-                            <div id='edit_content_5'>
-                            <input type="radio"
-                            name="optionFlip" value="horizontal">옆으로 넘김
-                            <input type="radio" 
-                            name="optionFlip" value="vertical">위로 넘김
+
+                        <div id='edit_content_5'>
+                            <div class="wrap">
+                                <input type="radio" id = 'rd10' name="optionFlip" value="horizontal" style="display: inline-block;" />
+                                <label for='rd10' style="height: 27px; margin-bottom: 10px; ">
+                                    <sapn style="font-family: 'Open Sans', sans-serif; font-size: 1.1rem; font-weight: 600;color: #3E3E3E;">옆으로 넘김</sapn>
+                                </label>
+
+                            </div>
+                            <div class="wrap">
+                                <input type="radio" id='rd11' name="optionFlip" value="vertical" style="display: inline-block" />
+                                <label for='rd11' style="height: 27px;">
+                                    <span style="font-family: 'Open Sans', sans-serif; font-size: 1.1rem; font-weight: 600;color: #3E3E3E;">위로 넘김</span>
+                                </label>
+                            </div>
+                            
                         </div>
+
                         <div id='edit_content_6'>
-                            총 페이지 수:
+                            <div style="margin-right: 8px;font-family: 'Open Sans', sans-serif;
+                            font-size: 1.2rem;
+                            font-weight: 600;
+                            color: #3E3E3E;
+                            width: auto;">총 페이지 수:</div>
                             <input type="number" name="numPages">
                         </div>
                     </div>
@@ -139,7 +176,7 @@
                     </div>
                 </div>
                 <div class = 'next_button_box'>
-                    <button id='next_button' type="submit" value="인쇄소 선택하기">
+                    <button id='next_button' type="submit" value="인쇄소 선택하기" style="cursor: pointer;">
                         <img src="/static/select_button.png" width=100% height = 42.7% >
                     </button>
                 </div>

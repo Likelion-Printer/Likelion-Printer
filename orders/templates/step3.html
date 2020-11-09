@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="/static/orders/css/step3.css" />
+    
+    
+
+</head>
+
+<body>
+    <div id='container'>
+        <header>
+            <div class = 'header_right'>
+                <div id='my_page'><a class="test" href="/confirmations/my_order/" target="my_page">마이페이지</a></div>
+                <div id='logout'><a href="/accounts/logout/" target="logout">로그아웃</a></div>
+            </div>
+            <div class = 'header_left'>
+                <a href= "{% url 'home' %}" > <img style="width: 48px; height: 54.47px;" src="/static/Group-1.png" alt="로고"></div></a>
+            </div>
+        </header>
+
+        <section>
+            <div class="section_1">
+                <div class = 'bar_box'>
+                    <div id='circle'></div>
+                    <div id='circle'></div>
+                    <div id='circle'></div>
+                    <div id='circle' style="background-color:#7558EE"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
