@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'confirmations.apps.ConfirmationsConfig',
     'orders.apps.OrdersConfig',
+    'django_seed',
 ]
 
 MIDDLEWARE = [
