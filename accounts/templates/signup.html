@@ -15,12 +15,12 @@
     <div id = 'container'>
         <header>
             <div class = 'header_right'>
-                <a href="{% url 'signup' %}"><img style= "width: 104px; height: 40px;" src="/static/main_button2.png" alt="회원가입"></a>
-                <a href="{% url 'login' %}"><img style= "width: 104px; height: 40px;" src="/static/main_button.png" alt="로그인"></a>
+                <a href="{% url 'signup' %}"><img style= "width: 100%; height: 40px;" src="/static/main_button2.png" alt="회원가입"></a>
+                <a href="{% url 'login' %}"><img style= "width: 100%; height: 40px;" src="/static/main_button.png" alt="로그인"></a>
             </div>
             
             <div class = 'header_left'>
-                <a href= "{% url 'home' %}" ><img style="width: 48px; height: 54.47px;" src="/static/Group-1.png" alt="로고"></a>
+                <a href= "{% url 'home' %}" ><img style="width: 100%; height: 54.47px;" src="/static/Group-1.png" alt="로고"></a>
             </div>
         </header>
     </div>
@@ -29,19 +29,26 @@
         <form action="{% url 'signup' %}" method="POST">
             {% csrf_token %}
             <a>회원가입</a>
-            <br<br/><br/><br/><br/>
-            ID 혹은 전화번호
-            <br><br/>
-            <input type="text" style="width: 35%; height: 72px" name="username" type="text" value="-포함 특수문자 불가능">
-            <br><br/>
-            비밀번호
-            <br><br>
-            <input style="width: 35%; height: 72px" name="password1" type="password" value="8~16자, 대소문자 구분">
-            <br>
-            <br>
-            <input style="width: 35%; height: 72px" name="password2" type="password" value="비밀번호 확인">
-            <br>
-            <br><br>
+            <div id='id-container'>
+            <p>ID 혹은 전화번호</p>
+            <input
+            id='inputbox'
+            type="text"
+            name="username"
+            type="text"
+            placeholder="-포함 특수문자 불가능">
+            </div>
+            <div id='password-container'>
+            <p>비밀번호</p>
+            <input
+            id='inputbox1'
+            type="password"
+            name="password1"  placeholder="8~16자, 대소문자 구분">
+            <input 
+            id='inputbox2'
+            type="password"
+            name="password2"  placeholder="비밀번호 확인">
+            </div>
             <div class = 'signup_button_box'>
                 <button id='signup_button' type="submit" value="회원가입">
                     <img src="/static/signup_button.png" width="100%" height="42.7%">

@@ -28,3 +28,6 @@ def complete(request, id):
     order = orders_models.Order.objects.get(id=id)
     pass
     return redirect("manage_order")
+
+def cancel(request):
+    return render(request, "cancel.html")

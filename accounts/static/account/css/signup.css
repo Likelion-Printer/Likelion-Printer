@@ -39,6 +39,28 @@ header {
     color: #959DAC;
     margin: 10% auto;
 }
+#id-container > p{
+    margin: 0;
+    position: relative;
+    left: 15%;
+    text-align: left;
+}
+#password-container > p {
+    margin: 0 0 15px 0;
+    position: relative;
+    left: 15%;
+    text-align: left;
+}
+#inputbox, #inputbox1, #inputbox2 {
+    width: 70%;
+    height: 72px;
+}
+#inputbox {
+    margin-bottom: 43px;
+}
+#inputbox1 {
+    margin-bottom: 10px;
+}
 .signup_button_box {
     width: 70%;
     height: 74px;
