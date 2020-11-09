@@ -33,6 +33,8 @@ def complete(request, id):
     order.update(status="complete")
     return redirect("manage_order")
 
+def cancel(request):
+    return render(request, "cancel.html")
 
 def take_back(reqeust, id):
     order = orders_models.Order.objects.filter(id=id)
