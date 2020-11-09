@@ -9,11 +9,8 @@ verify_ssl = true
 django = "*"
 black = "*"
 django-seed = "*"
-<<<<<<< HEAD
 pypdf = "*"
-=======
 requests = "*"
->>>>>>> c24660c47eb3f7fefa2200d78292e9eefe499105
 
 [requires]
 python_version = "3.8"
