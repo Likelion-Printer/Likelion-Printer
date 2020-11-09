@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from django_seed import Seed
+# from django_seed import Seed
 from orders import models as order_models
 from accounts import models as account_models
 from confirmations import models as confirmation_models
