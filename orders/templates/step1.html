@@ -35,13 +35,13 @@
                 </div>
             </div>
 
-            <form action="{% url 'create_order' %}" method="POST" enctype="multipart/form-data">
+            <form action="{% url 'create_order' %}" method="POST">
                 {% csrf_token %}
                 <div class='section_2'>
                     <div id = file_upload_box>
                         <div id='file_upload'>파일 업로드</div>
                 
-                        <form name="uploadForm" id="uploadForm" enctype="multipart/form-data" method="post">
+                        <form name="uploadForm" id="uploadForm" method="post">
                             <div id="dropZone">
                             
                                 <img src = "/static/upload.png" width="42px" height="42px">

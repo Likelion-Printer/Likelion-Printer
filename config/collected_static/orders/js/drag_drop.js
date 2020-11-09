@@ -74,7 +74,6 @@
                 if (fileObject != null) {
                     // 파일 Drag 이용하여 등록시
                     files = fileObject;
-                    console.log(files)
                 } else {
                     // 직접 파일 등록시
                     files = $('#multipaartFileList_' + fileIndex)[0].files;
@@ -89,7 +88,7 @@
                     } else {
                         $("#fileDragDesc").show(); 
                         $("fileListTable").hide();
-                    }addFileList            
+                    }
                     
                     for (let i = 0; i < files.length; i++) {
                         // 파일 이름
