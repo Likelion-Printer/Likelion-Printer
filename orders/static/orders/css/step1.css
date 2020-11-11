@@ -41,13 +41,12 @@ label {
 .header_right{
     position: absolute;
     display: flex;
-    right: 178px;
+    right: 160px;
     top:116px;
     box-sizing: border-box;
     width: 235px;
     padding:0 0;
-    justify-content: space-between;
-    
+    justify-content: space-between;    
 }
 .header_left{
     position: absolute;

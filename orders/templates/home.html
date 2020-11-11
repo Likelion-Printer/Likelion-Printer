@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Early Printer</title>
+
+</head>
+<body>
+
   </head>
   <body>
+
     <header>
       <a href="{% url 'home' %}">Early Printer(logo)</a>
       {% if user.is_authenticated %}
@@ -25,9 +30,11 @@
             if (msg) {
               alert(msg);
             }
+   
               if(msg){
                   alert('로그인 후 이용가능한 서비스입니다.');
               }
+
     </script>
   </body>
 </html>
