@@ -44,47 +44,7 @@
                             <div id = 'shop_select_1'>인쇄소 선택</div>
                             <div id = 'shop_select_2'>
                                 {% for printer in printerhouse %}
-                                    {% if printer.pk == 1 %}
-                                    <input type="radio" onclick="getOrderInfo(this.value);" class="printerHouse" 
-                                    name="printerHouse" value="{{printer.pk}}" checked ='checked'>
-
-                                    <div class ='pk_box' id={{printer.pk}}>
-                                        <div id='pk_num'>{{printer.pk}}</div>
-                        
-                                        <div style="position:absolute; right: 7.9%; top: 22px; height: 115px; width: 76%;">
-                                            
-                                            <div id="house_name">{{printer.house_name}}</div>
-                                            <div id="address">{{printer.address}}</div>
-                                            <div id="phone_number">{{printer.phone_number}}</div>
-                                            
-                                            <div id="house_photo">이미지</div>
-                            
-                                        </div>
-                                        
-                                    </div>
-                                    
-                                    {% elif printer.pk > 1 and printer.pk <= 4 %}
-                                    <div class='printhouse_box_2' id='num_{{printer.pk}}'>
-                                        <label style="cursor: pointer;">
-                                            <input type="radio" onclick="getOrderInfo(this.value); infoToggle();" class="printerHouse" 
-                                            name="printerHouse" value="{{printer.pk}}"/>
-                                            <div class ='pk_box'>
-                                                <div id='pk_num'>{{printer.pk}}</div>
-                                
-                                                <div style="position:absolute; right: 7.9%; top: 22px; height: 115px; width: 76%;">
-                                                    
-                                                    <div id="house_name">{{printer.house_name}}</div>
-                                                    <div id="address">{{printer.address}}</div>
-                                                    <div id="phone_number">{{printer.phone_number}}</div>
-                                                    
-                                                    <div id="house_photo">이미지</div>
-                                                </div>
-                                                
-                                            </div>
-                                        </label>
-                                    </div>
-
-                                    {% else %}
+                     
                                     <div class='printhouse_box_2' id='num_{{printer.pk}}'>
                                         <label style="cursor: pointer;">
                                             <input type="radio" onclick="getOrderInfo(this.value); infoToggle();" class="printerHouse"
@@ -103,8 +63,27 @@
                                             </div>
                                         </label>
                                     </div>
-                                    {% endif %}
                                 {% endfor %}
+                                <div class="pagination">
+                                <span class="step-links">
+                                    {% if printerhouse.has_previous %}
+                                        <a href="?page=1">&laquo; first</a>
+                                        <a href="?page={{ printerhouse.previous_page_number }}">previous</a>
+                                    {% endif %}
+
+                                    <span class="current">
+                                        Page {{ printerhouse.number }} of {{ printerhouse.paginator.num_pages }}.
+                                    </span>
+
+                                    {% if printerhouse.has_next %}
+                                        <a href="?page={{ printerhouse.next_page_number }}">next</a>
+                                        <a href="?page={{ printerhouse.paginator.num_pages }}">last &raquo;</a>
+                                    {% endif %}
+                                </span>
+                                </div>
+
+
+{% comment %}                                 
                             </div>
                             <div id="shop_select_3" >
                                 <button type="button" id='anchor_left' style="position: absolute; right: 220px; cursor: pointer;"><img style="width: 5.05px; height: 10.1px;" src="/static/anchor_left.png/"></button>
@@ -113,7 +92,7 @@
                                 <button type="button" id='anchor_right' style="position: absolute; left: 220px; cursor: pointer;"><img style="width: 5.05px; height: 10.1px;" src="/static/anchor_right.png/"></button>
 
                             </div>
-                        </div>  
+                        </div>   {% endcomment %}
 
                         <div id = 'map_box'>
                             <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec01915ed2945087fbe50850f5c254ce"></script>
