@@ -44,47 +44,7 @@
                             <div id = 'shop_select_1'>인쇄소 선택</div>
                             <div id = 'shop_select_2'>
                                 {% for printer in printerhouse %}
-                                    {% if printer.pk == 1 %}
-                                    <input type="radio" onclick="getOrderInfo(this.value);" class="printerHouse" 
-                                    name="printerHouse" value="{{printer.pk}}" checked ='checked'>
-
-                                    <div class ='pk_box' id={{printer.pk}}>
-                                        <div id='pk_num'>{{printer.pk}}</div>
-                        
-                                        <div style="position:absolute; right: 7.9%; top: 22px; height: 115px; width: 76%;">
-                                            
-                                            <div id="house_name">{{printer.house_name}}</div>
-                                            <div id="address">{{printer.address}}</div>
-                                            <div id="phone_number">{{printer.phone_number}}</div>
-                                            
-                                            <div id="house_photo">이미지</div>
-                            
-                                        </div>
-                                        
-                                    </div>
                                     
-                                    {% elif printer.pk > 1 and printer.pk <= 4 %}
-                                    <div class='printhouse_box_2' id='num_{{printer.pk}}'>
-                                        <label style="cursor: pointer;">
-                                            <input type="radio" onclick="getOrderInfo(this.value); infoToggle();" class="printerHouse" 
-                                            name="printerHouse" value="{{printer.pk}}"/>
-                                            <div class ='pk_box'>
-                                                <div id='pk_num'>{{printer.pk}}</div>
-                                
-                                                <div style="position:absolute; right: 7.9%; top: 22px; height: 115px; width: 76%;">
-                                                    
-                                                    <div id="house_name">{{printer.house_name}}</div>
-                                                    <div id="address">{{printer.address}}</div>
-                                                    <div id="phone_number">{{printer.phone_number}}</div>
-                                                    
-                                                    <div id="house_photo">이미지</div>
-                                                </div>
-                                                
-                                            </div>
-                                        </label>
-                                    </div>
-
-                                    {% else %}
                                     <div class='printhouse_box_2' id='num_{{printer.pk}}'>
                                         <label style="cursor: pointer;">
                                             <input type="radio" onclick="getOrderInfo(this.value); infoToggle();" class="printerHouse"
@@ -103,7 +63,7 @@
                                             </div>
                                         </label>
                                     </div>
-                                    {% endif %}
+                                    
                                 {% endfor %}
                             </div>
                             <div id="shop_select_3" >
@@ -159,7 +119,7 @@
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
     <script type="text/javascript" src="/static/orders/js/map.js"></script>
-    <script src="/static/orders/js/next.js"></script>
+    
     
     <script type="text/javascript">
 

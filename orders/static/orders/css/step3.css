@@ -1,18 +1,19 @@
 html {
-    width: 100%;
+width: 100%;
 }
 body {
     width: 100%;
+    height:100%;
     margin: 0 0;
+    display: flex;
+    flex-direction: column;
 }
 header {
     width: 100%;
     height: 12.500em;
-    position: relative;
 }
 section {
-    width: 100%;
-    
+    width: 100%; 
 }
 button{
     border: none;
@@ -134,7 +135,8 @@ input[type='radio'] {
     position: absolute;
     bottom: 60px;
     left: 35%;
-    transform: translate(8%, 0);
+    right: 35%;
+    transform: translate(-10%, 0);
 
 }
 #cancel {
@@ -142,6 +144,12 @@ input[type='radio'] {
     background-color: darkslategrey;
     width: 100%;
     height: 100%;
-    border-radius: 30px 30px 30px 30px;
-    
+    position: absolute;
+    opacity: 0.8;
+    margin: 0 0;
+}
+#cancel_alert {
+    width: 558px;
+    height: 260px;
+    border-radius: 30px 300x 30px 30px;
 }
