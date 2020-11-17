@@ -1,21 +1,16 @@
-
 html {
     width: 100%;
     height: 100%;
 }
 body {
     width: 100%;
-    height: 100%;
+    height:100%;
     margin: 0 0;
 }
 header {
     width: 100%;
-    height: 12.500em;
+    height: 200px;
     position: relative;
-}
-section {
-    width: 100%;
-    height:100%;
 }
 a[target='my_page'] {
     text-decoration: none;
@@ -41,18 +36,17 @@ label {
 .header_right{
     position: absolute;
     display: flex;
-    right: 160px;
-    top:116px;
-    box-sizing: border-box;
-    width: 235px;
-    padding:0 0;
-    justify-content: space-between;    
+    right: 9.27%;
+    top:56%;
+    width: 14.2%;
+    justify-content: space-between;
+    
 }
 .header_left{
     position: absolute;
     width: 2.5%;
-    left: 160px;
-    top:100px;
+    left: 8.3%;
+    top:50%;
     box-sizing: border-box;
 }
 .bar_box {
@@ -71,7 +65,7 @@ label {
 }
 .section_1{
     width: 100%;
-    height: 8.500em;
+    height: 136px;
     position: relative;
 }
 .section_2 {
@@ -81,7 +75,7 @@ label {
 }
 .edit {
     width: 100%;
-    height: 67.5rem;   
+    height: 1080px;   
 }
 .request_box {
     width: 100%;
@@ -106,9 +100,7 @@ label {
     width: 101.5%;
     height: 101.5%;
 }
-#container {
-    width: 100%;
-}
+
 #circle {
     width: 16px;
     height: 16px;

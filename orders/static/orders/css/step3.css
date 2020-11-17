@@ -1,19 +1,21 @@
 html {
-width: 100%;
+    width: 100%;
+    height: 100%;
 }
 body {
     width: 100%;
-    height:100%;
+    height: 100%;
     margin: 0 0;
-    display: flex;
-    flex-direction: column;
+
 }
 header {
     width: 100%;
-    height: 12.500em;
+    height: 200px;
+    position: relative;
 }
 section {
     width: 100%; 
+    height: 880px;
 }
 button{
     border: none;
@@ -24,44 +26,50 @@ a[target='my_page'] {
     text-decoration: none;
     color:#7558ee;
     letter-spacing: 0.98px;
+    font-size: 1.188rem;
 }
 a[target='logout'] {
     text-decoration: none;
     color:#959dac;
     letter-spacing: 0.98px;
+    font-size: 1.188rem;
 }
 input[type='radio'] {
     display: none;
 }
-
+span {
+    position: absolute; 
+    top:100px; 
+    left: 176px;
+   
+}
 .header_right{
     position: absolute;
     display: flex;
-    right: 178px;
-    top:116px;
-    box-sizing: border-box;
-    width: 235px;
-    padding:0 0;
+    right: 9.27%;
+    top:56%;
+    width: 14.2%;
     justify-content: space-between;
     
 }
 .header_left{
     position: absolute;
     width: 2.5%;
-    left: 160px;
-    top:100px;
+    left: 8.3%;
+    top:50%;
     box-sizing: border-box;
 }
 .bar_box {
     position: absolute;
     display: flex;
-    width: 12.500rem;
-    height: 1.000rem;
-    top: 3.125em;
+    width: 10.41%;
+    height: 16px;
+    top: 50px;
     left:50%; 
     transform: translate(-50%, 0);
     justify-content: space-between;
 }
+
 .section_1{
     width: 100%;
     height: 211px;
@@ -71,22 +79,23 @@ input[type='radio'] {
     width: 100%;
     height: 382px;
     position: relative;
+    background-color: blueviolet;
 }
 .secion_3 {
     width: 100%;
-    height: 287px;
+    height: 353px;
     background-color: darkgreen;
     position: relative;
 }
 #my_page{
     font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    font-size: 1.188rem;
+    font-weight: 600;
 }
 #logout{
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     font-size: 1.188rem;
+
 }
 #circle {
     width: 16px;
@@ -96,7 +105,7 @@ input[type='radio'] {
 }
 #time {
     width: 11%;
-    height: 134px;
+    height: 382px;
     background-color: crimson;
     position: absolute;
     left: 50%;
@@ -105,7 +114,7 @@ input[type='radio'] {
 }
 #printer_info {
     width: 11%;
-    height: 248px;
+    height: 232px;
     background-color: blue;
     position: absolute;
     left: 50%;
@@ -121,7 +130,7 @@ input[type='radio'] {
 #printer_list {
     position: absolute;
     width: 31.5%;
-    height: 140px;
+    height: 142px;
     background-color: darkgrey;
     left: 35%;
     transform: translate(-3%, 0);
@@ -134,22 +143,38 @@ input[type='radio'] {
     cursor: pointer;
     position: absolute;
     bottom: 60px;
-    left: 35%;
-    right: 35%;
-    transform: translate(-10%, 0);
-
+    width: 100%;
+    margin: 0 auto;
 }
-#cancel {
-    z-index: 1;
-    background-color: darkslategrey;
+
+#cancel_bg{
     width: 100%;
     height: 100%;
-    position: absolute;
-    opacity: 0.8;
-    margin: 0 0;
+    background-color:rgba(0, 0,0, 0.7);
+    z-index: 1;
+    position: fixed;
+    display: none;
 }
-#cancel_alert {
+#cancel_modal{
     width: 558px;
     height: 260px;
-    border-radius: 30px 300x 30px 30px;
+    border-radius: 30px 30px 30px 30px;
+    background-color: white;
+    margin: 0 auto;
+    transform: translate(0, 100%);
+    position: relative;
+    opacity: 1;
+}
+#cancel {
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 1rem; 
+    color: #959DAC; 
+    cursor: pointer;
+    text-decoration: underline;
+}
+#cancel:hover{
+    font-size: 1.031rem
+}
+#exit {
+    cursor: pointer;;
 }
