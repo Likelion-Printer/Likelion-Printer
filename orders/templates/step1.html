@@ -42,7 +42,7 @@
                         <form name="uploadForm" id="uploadForm" enctype="multipart/form-data" method="post">
                             <div id="dropZone">
                                 
-                                <img src = "/static/upload.png" width="42px" height="42px">
+                                <img src = "/static/upload.png" style="width: 45px; height: 42px;">
                                 
                                     드래그해서 업로드하기
                             
@@ -154,7 +154,7 @@
                                 font-weight: 600;
                                 color: #3E3E3E;
                                 width: auto;">총 페이지 수:</div>
-                                <input type="number" name="numPages">
+                                <input type="number" name="numPages" min="0">
                             </div>
                         </div>
                     </div>
@@ -169,7 +169,7 @@
                                 margin-bottom: 24px;">
                                 추가 요청사항
                                 </div>
-                                <textarea id="request" name="request"></textarea>
+                                <textarea id="request" name="request" style="padding: 15px;"></textarea>
                         </div>
                     </div>
                     <div class = 'next_button_box'>
