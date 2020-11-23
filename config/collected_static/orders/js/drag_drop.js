@@ -51,9 +51,8 @@
                     e.preventDefault();
                     // 드롭다운 영역 css
                     dropZone.css('background-color', '#FAFAFA');
-                    // 하나씩 찍힘
+    
                     let files = e.originalEvent.dataTransfer.files;
-                    // console.log(files);
                     if (files != null) {
                         if (files.length < 1) {
                             /* alert("폴더 업로드 불가"); */
@@ -75,7 +74,6 @@
                 if (fileObject != null) {
                     // 파일 Drag 이용하여 등록시
                     files = fileObject;
-                    // console.log(files)
                 } else {
                     // 직접 파일 등록시
                     files = $('#multipaartFileList_' + fileIndex)[0].files;
@@ -90,12 +88,11 @@
                     } else {
                         $("#fileDragDesc").show(); 
                         $("fileListTable").hide();
-                    }addFileList            
+                    }
                     
                     for (let i = 0; i < files.length; i++) {
                         // 파일 이름
                         let fileName = files[i].name;
-                        // console.log(files[i].name)
                         let fileNameArr = fileName.split("\.");
                         // 확장자
                         let ext = fileNameArr[fileNameArr.length - 1];
@@ -139,7 +136,6 @@
                             // 전체 파일 사이즈
                             totalFileSize += fileSizeMb;
     
-                            // console.log(fileList);
                             // 파일 배열에 넣기
                             fileList[fileIndex] = files[i];
     
@@ -225,14 +221,13 @@
                 if (confirm("등록 하시겠습니까?")) {
                     // 등록할 파일 리스트를 formData로 데이터 입력
                     let form = $('#uploadForm');
-                    let formData = new FormData();
-                    // console.log(files)
-                    // 하나만 보내게 수정
-                    console.log(fileList[uploadFileList[0]]);
-                    formData.append('file', fileList[uploadFileList[0]]);
-                    
+                    let formData = new FormData(form);
+                    for (let i = 0; i < uploadFileList.length; i++) {
+                        formData.append('files', fileList[uploadFileList[i]]);
+                    }
+    
                     $.ajax({
-                        url : "http://127.0.0.1:8000/orders/file_api",
+                        url : "업로드 경로",
                         data : formData,
                         type : 'POST',
                         enctype : 'multipart/form-data',
