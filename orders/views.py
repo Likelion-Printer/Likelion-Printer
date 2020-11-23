@@ -5,7 +5,7 @@ from django.http import HttpResponse
 import json
 from django.core import serializers
 from django.contrib.auth import get_user_model
-
+from django.core.paginator import Paginator
 # from PyPDF2 import PdfFileReader
 
 # Create your views here.
@@ -59,7 +59,11 @@ def create_order(request):
 
 def step2(request, id):
     order = Order.objects.get(id=id)
-    printerhouse = Printer_house.objects.all()
+    printer = Printer_house.objects.all()
+    paginator = Paginator(printer, 3)
+    page = request.GET.get('page')
+    printerhouse = paginator.get_page(page)
+    page_size= 3
     return render(request, 'step2.html', { 'order' : order, 'printerhouse' : printerhouse })
 
 def update_order(request, id):
