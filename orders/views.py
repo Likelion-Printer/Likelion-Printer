@@ -91,3 +91,13 @@ def printerhouse_info(request, id):
         response_data['message'] = 'Failed'
 
     return HttpResponse(json.dumps(response_data), content_type="application/json")
+
+def upload_file(request):
+    file = request.FILES['file']
+    print(file)
+    return render(request, 'home.html')
+
+def step3(request,id):
+    order = Order.objects.get(id=id)
+    return render(request, 'step3.html', { 'order' : order })
+
