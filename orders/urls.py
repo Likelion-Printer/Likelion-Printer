@@ -22,8 +22,10 @@ urlpatterns = [
     path('step3/', orders.views.step3, name='step3'),
     path('create_order', orders.views.create_order, name='create_order'),
     path('step2/<int:id>', orders.views.step2, name='step2'),
+    path('step3/<int:id>', orders.views.step3, name='step3'),
     path('update_order/<int:id>', orders.views.update_order, name='update_order'),
     path('payment/<int:id>', orders.views.payment, name='payment'),
     path('order_result/<int:id>', orders.views.order_result, name='order_result'),
-    path('api/<int:id>', orders.views.printerhouse_info, name='printerhouse_info')
+    path('api/<int:id>', orders.views.printerhouse_info, name='printerhouse_info'),
+    path('file_api/', orders.views.upload_file, name='upload_file'),
 ]
