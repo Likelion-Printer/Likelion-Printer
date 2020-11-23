@@ -32,7 +32,7 @@ header {
 }
 #container2 {
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -50,6 +50,11 @@ header {
 }
 
 #container2 > button {
+  background: transparent
+      linear-gradient(99deg, var(--unnamed-color-465efb) 0%, #af52de 100%) 0% 0%
+      no-repeat padding-box;
+    background: transparent linear-gradient(99deg, #465efb 0%, #af52de 100%) 0% 0%
+      no-repeat padding-box;
   width: 400px;
   height: 76px;
   background: linear-gradient();
