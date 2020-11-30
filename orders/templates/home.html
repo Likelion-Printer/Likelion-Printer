@@ -1,40 +1,92 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Early Printer</title>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="/static/orders/css/home.css" />
+  <title>Early Printer</title>
 
 </head>
+
 <body>
 
   </head>
+
   <body>
 
     <header>
-      <a href="{% url 'home' %}">Early Printer(logo)</a>
-      {% if user.is_authenticated %}
-      <a class="test" href="{% url 'my_order' %}">마이페이지</a>
-      <!--유저에 따라 달라져야할 페이지-->
-      <a href="{% url 'logout' %}">로그아웃</a>
-      {% else %}
-      <a href="{% url 'login' %}">로그인</a>
-      {% endif %}
+      <div class='header_left'>
+        <a href="{% url 'home' %}"> <img style="width: 48px; height: 54.47px;" src="/static/Group-1.png" alt="로고"></a>
+      </div>
+
+        {% if user.is_authenticated %}
+      <div class='header_right'>
+        <div id='my_page'><a class="test" href="/confirmations/my_order/" target="my_page">마이페이지</a></div>
+        <div id='logout'><a href="/accounts/logout/" target="logout">로그아웃</a></div>
+      </div>
+
+        {% else %}
+      <div class='header_right'>
+        <a href="{% url 'signup' %}"><img style= "width: 104px; height: 40px;" src="/static/main_button2.png" alt="회원가입"></a>
+        <a href="{% url 'login' %}"><img src="/static/main_button.png" style="width: 104px; height: 40px;"></a>
+        {% endif %}
+      </div>
     </header>
 
-    <a href="{% url 'step1' %}">주문넣기</a>
+    <section>
+      <div class="section_1">
+        <div class="text_box">
+          <div class="text1">급할 때마다 늘어져 있는 프린트줄<br> 언제까지 기다릴래?</div>
+          <div class="text2">얼리 프린터로 똑똑하게 프린트하자!</div>
+        </div>
+        <img style='width: 100%; height: 582.4px; position: absolute; bottom: 205px;' src="/static/background.png"
+          alt="background_img">
+      </div>
 
+      <div class="section_2">
+        <div class="guide_box">
+          <div class="guide_title">How To Use</div>
+          <div class="guide_content">
+            <div class="guide_content_box">
+              <div class="img"><img src="/static/coin.png" src="coin"></div>
+              <div class="comment">코인충전</div>
+            </div>
+
+            <div class="guide_content_box">
+              <div class="img"><img src="/static/printer.png" src="coin"></div>
+              <div class="comment">프린트 옵션 설정</div>
+            </div>
+
+            <div class="guide_content_box">
+              <div class="img"><img src="/static/person.png" src="coin" style="width: 34px;"></div>
+              <div class="comment">인쇄소 및 원하는 픽업 시간 선택</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn">
+          <button><a href="{% url 'step1' %}"><img src="/static/order_btn.png" style="width: 326px; height: 60px;"></a></button>
+        </div>
+        
+      </div>
+    </section>
+    
     <script>
-            const msg = "{{ msg }}";
+      const msg = "{{ msg }}";
 
-            if (msg) {
-              alert(msg);
-            }
-   
-              if(msg){
-                  alert('로그인 후 이용가능한 서비스입니다.');
-              }
+      if (msg) {
+        alert(msg);
+      }
+
+      if (msg) {
+        alert('로그인 후 이용가능한 서비스입니다.');
+      }
 
     </script>
   </body>
+
 </html>
