@@ -53,11 +53,15 @@
                     <div style='font-size: 1rem; color: #7558EE;'>픽업시간</div>
                     
                     <div style="display: flex; justify-content: space-between; margin-top: 5px;">
-                        <div id="time_box"></div>
+                        <div id="time_box">{{order.pickup_time}}</div>
                         <div id="time_box"></div>
                     </div>
                 </div>
-                <div id="printer_info"></div>
+                <div id="printer_info">
+                    {{order.printer_house.house_name}}
+                    {{order.printer_house.address}}
+                    {{order.printer_house.phone_number}}
+                </div>
             </div>
 
             <div class="secion_3">
