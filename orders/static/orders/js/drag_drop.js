@@ -224,15 +224,16 @@
     
                 if (confirm("등록 하시겠습니까?")) {
                     // 등록할 파일 리스트를 formData로 데이터 입력
-                    let form = $('#uploadForm');
+                    // let form = $('#uploadForm');
                     let formData = new FormData();
+
                     // console.log(files)
                     // 하나만 보내게 수정
-                    console.log(fileList[uploadFileList[0]]);
+                    // console.log(fileList[uploadFileList[0]]);
                     formData.append('file', fileList[uploadFileList[0]]);
                     
                     $.ajax({
-                        url : "http://127.0.0.1:8000/orders/file_api",
+                        url : "http://127.0.0.1:8000/orders/create_order/",
                         data : formData,
                         type : 'POST',
                         enctype : 'multipart/form-data',
