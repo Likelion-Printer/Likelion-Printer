@@ -1,11 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel='stylesheet' type='text/css' href="/static/account/css/login.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 </head>
+    
 <body>
-    사장님용 로그인 페이지입니다.
+    <div id = 'container'>
+        <header>
+            <div class = 'header_right'>
+                <a href="{% url 'signup' %}"><img style= "width: 104px; height: 40px;" src="/static/main_button2.png" alt="회원가입"></a>
+                <a href="{% url 'login' %}"><img style= "width: 104px; height: 40px;" src="/static/main_button.png" alt="로그인"></a>
+            </div>
+            
+            <div class = 'header_left'>
+                <a href= "{% url 'home' %}" ><img style="width: 48px; height: 54.47px;" src="/static/Group-1.png" alt="로고"></a>
+            </div>
+        </header>
+    </div>
+    <div class = 'wrap'>
+        <div id = 'form'>
+            <p>로그인</p>
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <input
+                    id='id-input'
+                    name="username"
+                    type="text"
+                    placeholder="ID 혹은 전화번호"
+                />
+                <input
+                    id='id-input'
+                    name="password"
+                    type="password"
+                    placeholder="비밀번호"
+                />
+
+                <div class = 'login_button_box'>
+                    <button id='login_button' type="submit" value="로그인">
+                        <img src="/static/long_main_button2.png" width="100%" height=74px>
+                    </button>
+                </div>
+                <div class='submit'>
+                    <a href="{% url 'login' %}">회원 로그인</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
+    <script>
+      const error = "{{error}}";
+      if (error) {
+        alert(error);
+      }
+    </script>
+    
 </html>

@@ -1,0 +1,153 @@
+*{
+    box-sizing: border-box;
+}
+html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0 0;
+}
+header {
+    width: 100%;
+    height: 12.500em;
+    position: relative;
+}
+section {
+    width: 100%;
+    height:100%;
+}
+button{
+    border: none;
+    background-color: transparent;
+    outline: none;
+
+}
+.guide_content_box img {
+    width: 73px;
+    height: 65px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+} 
+a[target='my_page'] {
+    text-decoration: none;
+    color:#7558ee;
+    letter-spacing: 0.98px;
+}
+a[target='logout'] {
+    text-decoration: none;
+    color:#959dac;
+    letter-spacing: 0.98px;
+}
+input[type='radio'] {
+    display: none;
+}
+
+.header_right{
+    position: absolute;
+    display: flex;
+    right: 178px;
+    top:116px;
+    box-sizing: border-box;
+    width: 235px;
+    padding:0 0;
+    justify-content: space-between;
+    
+}
+.header_left{
+    position: absolute;
+    width: 2.5%;
+    left: 160px;
+    top:100px;
+    box-sizing: border-box;
+}
+.section_1 {
+    width: 100%;
+    height: 910px;
+    position: relative;
+}
+.section_2{
+    width: 100%;
+}
+.text1 {
+    text-align: center;
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.9px;
+}
+.text2 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+.text_box {
+    width: auto;
+    height: 114px;
+    z-index: 1;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.guide_box {
+    width: 35%;
+    height: 251px;
+    margin: 0 auto;
+    margin-bottom: 113px;
+}
+.guide_title {
+    font-size: 1.625rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1.3px;
+    height: 31px;
+    margin-bottom: 72.36px;
+    
+}
+.guide_content_box {
+    width: 130px;
+    height: 150px;
+    position: relative;
+    
+}
+.guide_content {
+    display: flex;
+    justify-content: space-between;
+}
+.comment{
+    font-size: 0.95rem;
+    text-align: center;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 0.8px;
+    position: absolute;
+    top: 100px;
+    
+}
+.btn {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 227px;
+}
+#my_page{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.188rem;
+}
+#logout{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.188rem;
+}

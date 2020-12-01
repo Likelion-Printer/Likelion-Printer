@@ -6,8 +6,9 @@ import json
 from django.core import serializers
 from django.contrib.auth import get_user_model
 from django.views.decorators.csrf import csrf_exempt
-
 #from PyPDF2 import PdfFileReader
+from django.core.paginator import Paginator
+# from PyPDF2 import PdfFileReader
 
 # Create your views here.
 
@@ -21,6 +22,10 @@ def step1(request):
     if not(request.user.is_authenticated):
         return redirect('error_home')
     return render(request, 'step1.html')
+
+    
+def step3(request):
+    return render(request, 'step3.html')
 
 def error_home(request):
     msg = 'error'
@@ -59,7 +64,11 @@ def create_order(request):
 
 def step2(request, id):
     order = Order.objects.get(id=id)
-    printerhouse = Printer_house.objects.all()
+    printer = Printer_house.objects.all()
+    paginator = Paginator(printer, 3)
+    page = request.GET.get('page')
+    printerhouse = paginator.get_page(page)
+    page_size= 3
     return render(request, 'step2.html', { 'order' : order, 'printerhouse' : printerhouse })
 
 def update_order(request, id):

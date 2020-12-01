@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div id='container'>
+    
         <header>
             <div class = 'header_right'>
                 <div id='my_page'><a class="test" href="/confirmations/my_order/" target="my_page">마이페이지</a></div>
@@ -44,76 +44,83 @@
                             <div id = 'shop_select_1'>인쇄소 선택</div>
                             <div id = 'shop_select_2'>
                                 {% for printer in printerhouse %}
-                                    {% if printer.pk == 1 %}
-                                    <input type="radio" onclick="getOrderInfo(this.value);" class="printerHouse" 
-                                    name="printerHouse" value="{{printer.pk}}" checked ='checked'>
 
-                                    <div class ='pk_box' id={{printer.pk}}>
-                                        <div id='pk_num'>{{printer.pk}}</div>
-                        
-                                        <div style="position:absolute; right: 7.9%; top: 22px; height: 115px; width: 76%;">
-                                            
-                                            <div id="house_name">{{printer.house_name}}</div>
-                                            <div id="address">{{printer.address}}</div>
-                                            <div id="phone_number">{{printer.phone_number}}</div>
-                                            
-                                            <div id="house_photo">이미지</div>
-                            
-                                        </div>
+                                    
+                                    <div class='printhouse_box_2'>
+                                            <label class="label" onclick="infoToggle()">
+                                                <input type="radio" onclick="getOrderInfo(this.value);" class="printerHouse"
+                                                name="printerHouse" value="{{printer.pk}}"/>
                                         
+                                                <div class ='pk_box'>
+                                                    <div id='pk_num'>{{printer.pk}}</div>
+                                    
+                                                    <div style="position:absolute; right: 7.9%; top: 22px; height: 115px; width: 76%;">
+                                                        
+                                                        <div id="house_name">{{printer.house_name}}</div>
+                                                        <div id="address">{{printer.address}}</div>
+                                                        <div id="phone_number">{{printer.phone_number}}</div>
+                                                        
+                                                        <div id="house_photo">이미지</div>
+                                                    </div>
+                                                </div>
+                                        </label>
                                     </div>
                                     
-                                    {% elif printer.pk > 1 and printer.pk <= 4 %}
-                                    <div class='printhouse_box_2' id='num_{{printer.pk}}'>
-                                        <label style="cursor: pointer;">
-                                            <input type="radio" onclick="getOrderInfo(this.value); infoToggle();" class="printerHouse" 
-                                            name="printerHouse" value="{{printer.pk}}"/>
-                                            <div class ='pk_box'>
-                                                <div id='pk_num'>{{printer.pk}}</div>
-                                
-                                                <div style="position:absolute; right: 7.9%; top: 22px; height: 115px; width: 76%;">
-                                                    
-                                                    <div id="house_name">{{printer.house_name}}</div>
-                                                    <div id="address">{{printer.address}}</div>
-                                                    <div id="phone_number">{{printer.phone_number}}</div>
-                                                    
-                                                    <div id="house_photo">이미지</div>
-                                                </div>
-                                                
-                                            </div>
-                                        </label>
-                                    </div>
-
-                                    {% else %}
-                                    <div class='printhouse_box_2' id='num_{{printer.pk}}'>
-                                        <label style="cursor: pointer;">
-                                            <input type="radio" onclick="getOrderInfo(this.value); infoToggle();" class="printerHouse"
-                                            name="printerHouse" value="{{printer.pk}}"/>
-                                            <div class ='pk_box'>
-                                                <div id='pk_num'>{{printer.pk}}</div>
-                                
-                                                <div style="position:absolute; right: 7.9%; top: 22px; height: 115px; width: 76%;">
-                                                    
-                                                    <div id="house_name">{{printer.house_name}}</div>
-                                                    <div id="address">{{printer.address}}</div>
-                                                    <div id="phone_number">{{printer.phone_number}}</div>
-                                                    
-                                                    <div id="house_photo">이미지</div>
-                                                </div>
-                                            </div>
-                                        </label>
-                                    </div>
-                                    {% endif %}
                                 {% endfor %}
                             </div>
-                            <div id="shop_select_3" >
-                                <button type="button" id='anchor_left' style="position: absolute; right: 220px; cursor: pointer;"><img style="width: 5.05px; height: 10.1px;" src="/static/anchor_left.png/"></button>
-                                <div><img style="width: 10.1px; height: 10.1px; position: absolute; right: 190px;" src="/static/circle_color.png/"></div>
-                                <div><img style="width: 10.1px; height: 10.1px; position: absolute; left: 190px;" src="/static/circle_none.png/"></div>
-                                <button type="button" id='anchor_right' style="position: absolute; left: 220px; cursor: pointer;"><img style="width: 5.05px; height: 10.1px;" src="/static/anchor_right.png/"></button>
 
+                            <div>
+
+                                       
+                                        {% if printerhouse.has_previous %} 
+                                        <div id="shop_select_3">
+                                        
+                                            <div class="current">
+                                                <div>
+                                                    <button type="button" id='anchor_left' style="cursor: pointer;">
+                                                        <a href="?page=1"><img style="width: 10px; height: 10.1px;" src="/static/anchor_left.png/"></a>
+                                                    </button>
+                                                </div>
+                                                <div style="color: #3E3E3E">{{ printerhouse.number }}/{{ printerhouse.paginator.num_pages }}</div>
+                                                
+                                                <div>
+                                                    <button type="button" id='anchor_right' style="cursor: pointer;">
+                                                        <a href="?page={{ printerhouse.previous_page_number }}" ><img style="width: 10px; height: 10.1px;" src="/static/anchor_right.png/"></a>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                     
+                                        </div>
+                                        {% endif %}
+
+                                        
+                                        {% if printerhouse.has_next %}
+                                        <div id="shop_select_3">
+                                         
+                                            <div class="current">
+                                               
+                                                <div>
+                                                    <button type="button" id='anchor_left' style = "cursor: pointer;">
+                                                        <a href="?page={{ printerhouse.next_page_number }}"><img style="width: 10px; height: 10.1px;" src="/static/anchor_left.png/"></a>
+                                                    </button>
+                                                </div>
+                                                <div style="color: #3E3E3E">{{ printerhouse.number }}/{{ printerhouse.paginator.num_pages }}</div>  
+                                                <div>
+                                                    <button type="button" id='anchor_right' style="cursor: pointer;">
+                                                        <a href="?page={{ printerhouse.paginator.num_pages }}"><img style="width: 10px; height: 10.1px;" src="/static/anchor_right.png/"></a>
+                                                    </button>
+                                                </div>
+
+
+                                            </div>
+                                            
+                                        </div>
+                                        {% endif %}
+                                       
                             </div>
-                        </div>  
+                            
+                        </div>   
+                             
 
                         <div id = 'map_box'>
                             <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec01915ed2945087fbe50850f5c254ce"></script>
@@ -122,32 +129,68 @@
                 </div>
 
                 <div class='pickup_time_select'>
-                    <div id = 'pickup_time_select_1'>픽업 시간대 선택</div>
-                    <div id = 'pickup_time_select_2'>
-                        시간테이블<br>
-                        9시: <span class="9">0</span><br>
-                        10시: <span class="10">0</span><br>
-                        11시: <span class="11">0</span><br>
-                        12시: <span class="12">0</span><br>
-                        1시: <span class="13">0</span><br>
-                        2시: <span class="14">0</span><br>
-                        3시: <span class="15">0</span><br>
-                        4시: <span class="16">0</span><br>
-                        5시: <span class="17">0</span><br>
-                        6시: <span class="18">0</span><br>
-                        7시: <span class="19">0</span><br>
-                        8시: <span class="20">0</span><br>
-                        <input type="datetime-local" name="pickupTime">
-                    </div>
-
-                    <div class= 'payment_button_box'>
-                        <button type="submit" value="결제하기">
-                            <img src="/static/select_button.png" width=100% height = 112px >
-                        </button>
+                    <div class='pickup_time_select_box'>
+                        <div id = 'shop_select_1'>픽업 날짜 및 시간 선택</div>
+                        <div id="calendar">
+                            
+                                <div class="my-calendar clearfix">
+                                  <div class="calendar-box">
+                                    <div class="ctr-box clearfix">
+                                      <button type="button" title="prev" class="btn-cal prev">
+                                      </button>
+                                      <span class="cal-year"></span>
+                                      <span class="cal-month"></span>
+                                      <button type="button" title="next" class="btn-cal next">
+                                      </button>
+                                    </div>
+                                    <table class="cal-table">
+                                      <thead>
+                                        <tr>
+                                          <th>일</th>
+                                          <th>월</th>
+                                          <th>화</th>
+                                          <th>수</th>
+                                          <th>목</th>
+                                          <th>금</th>
+                                          <th>토</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody class="cal-body"></tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                                <!-- // .my-calendar -->
+                              </div>
+                       
+                        <div class= 'payment_button_box'>
+                            <button type="submit" value="결제하기">
+                                <img src="/static/select_button.png" width=100% height = 112px >
+                            </button>
+                        </div>
                     </div>
                 </div>
             </form>
         </section>
+
+        <div class='pickup_time_select'>
+            <div id = 'pickup_time_select_1'>픽업 시간대 선택</div>
+            <div id = 'pickup_time_select_2'>
+                시간테이블<br>
+                9시: <span class="9">0</span><br>
+                10시: <span class="10">0</span><br>
+                11시: <span class="11">0</span><br>
+                12시: <span class="12">0</span><br>
+                1시: <span class="13">0</span><br>
+                2시: <span class="14">0</span><br>
+                3시: <span class="15">0</span><br>
+                4시: <span class="16">0</span><br>
+                5시: <span class="17">0</span><br>
+                6시: <span class="18">0</span><br>
+                7시: <span class="19">0</span><br>
+                8시: <span class="20">0</span><br>
+                <input type="datetime-local" name="pickupTime">
+            </div>
+        </div>
 
         <br>페이지 수 구하기:<span> 0 </span>
 
@@ -158,7 +201,10 @@
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
     <script type="text/javascript" src="/static/orders/js/map.js"></script>
-    <script src="/static/orders/js/next.js"></script>
+    <script type="text/javascript" src="/static/orders/js/calendar.js"></script>
+
+
+    
     
     <script type="text/javascript">
 
@@ -214,10 +260,10 @@
                     for(let i in peoplePerHour){
                         $(i).html(peoplePerHour[i]);
                     }
-
+                    console.log(obj)
                 }
             })
-        }
+        } 
 
     </script>
 </body>
