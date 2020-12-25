@@ -58,6 +58,7 @@ class Order(models.Model):
         return f"{self.customer.username}-{self.pickup_time}"
 
     def cost(self):
+        # print(self.number_of_pages)
         if self.options_color == "black":
             return 50 * self.number_of_pages
         else:

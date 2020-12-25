@@ -35,7 +35,7 @@ def error_home(request):
 def create_order(request):
     order = Order()
     order.customer = request.user
-    print(request.user)
+    print(request.FILES)
     order.options_print = request.POST.get('optionDirection')
     print(request.POST.get('optionDirection'))
     order.options_pages = request.POST.get('pagePerSheet')
@@ -43,7 +43,7 @@ def create_order(request):
     order.options_color = request.POST.get('optionColor')
     order.options_flip = request.POST.get('optionFlip')
     order.number_of_pages = request.POST.get('numPages')
-    print(order.number_of_pages)
+    # print(order.number_of_pages)
     order.comments = request.POST.get('request')
     order.cost()
     order.order_num()
