@@ -118,8 +118,8 @@ input[type='radio'] {
     width: 130px;
     height: 150px;
     position: relative;
-    
 }
+
 .guide_content {
     display: flex;
     justify-content: space-between;
@@ -139,7 +139,7 @@ input[type='radio'] {
 .btn {
     width: 100%;
     text-align: center;
-    margin-bottom: 227px;
+    padding: 0 0 227px 0;
 }
 #my_page{
     font-family: 'Open Sans', sans-serif;
