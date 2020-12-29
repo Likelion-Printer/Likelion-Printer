@@ -16,9 +16,13 @@
         
         <div id="cancel_bg">
             <div id="cancel_modal">
-                <button id="exit">나가기</button>
-                <span>해당 주문을 취소하시겠습니까?</span>
-                <button style="position: absolute; bottom: 50px; left: 79px;"><img src="/static/cancel_button.png"></button>
+                <button id="exit">
+                    <i class="fas fa-times fa-2x"></i>
+                </button>
+                <div class="message">
+                    <span class="cancel-message">해당 주문을 취소하시겠습니까?</span>
+                    <button class='cancel-btn'><img src="/static/cancel_button.png"></button>
+                </div>
             </div>
         </div>
                
@@ -41,9 +45,9 @@
                     <div id='circle' style="background-color:#7558EE"></div>
                 </div>
                 <div style=" position: absolute; left: 50%; transform: translate(-50%, 0); top: 115px; display: flex; flex-direction: column; align-items: center;">
-                    <div style= 'font-size: 1.375rem; margin-bottom: 10px; font-family: "Open Sans", sans-serif; font-weight: 600;'>주문완료</div>
+                    <div style= 'font-size: 1.375rem; margin-bottom: 10px; font-family: "Open Sans", sans-serif; font-weight: 600;'>예약완료</div>
                     <div id = 'cancel'>
-                        주문취소
+                        예약취소
                     </div>
                 </div>
             </div>
@@ -58,9 +62,9 @@
                     </div>
                 </div>
                 <div id="printer_info">
-                    {{order.printer_house.house_name}}
-                    {{order.printer_house.address}}
-                    {{order.printer_house.phone_number}}
+                    <span class="printer_info_name">{{order.printer_house.house_name}}</span>
+                    <span class="printer_info_address"> {{order.printer_house.address}}</span>
+                    <span class="printer_info_phone_number">{{order.printer_house.phone_number}}</span>
                 </div>
             </div>
 
@@ -77,5 +81,8 @@
             </div>        
         </section>
 </body>
-<script type="text/javascript" src="/static/orders/js/cancel.js"></script>
+
+<script src="https://kit.fontawesome.com/8180a87f0a.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/static/orders/js/cancelPopUp.js"></script>
+
 

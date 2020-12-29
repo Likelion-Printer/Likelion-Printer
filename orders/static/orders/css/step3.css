@@ -27,6 +27,9 @@ button{
     background-color: transparent;
 
 }
+span{
+    display: block;
+}
 a[target='my_page'] {
     text-decoration: none;
     color:#7558ee;
@@ -42,11 +45,35 @@ a[target='logout'] {
 input[type='radio'] {
     display: none;
 }
-span {
+.cancel-message {
     position: absolute; 
     top:100px; 
     left: 176px;
-   
+    letter-spacing: 0.8px;
+}
+.impossible_message {
+    position: absolute;
+    left: 214px;
+    top: 73px;
+    letter-spacing: 1.1px;
+    font-size: 1.375rem;
+    color: #262728;
+    font-weight: 700;
+}
+.impossible_message_small {
+    position: absolute;
+    font-size: 1rem;
+    letter-spacing: 1.1px;
+    color: #262728;
+    left: 140px;
+    top: 141px;
+    text-align: center;
+}
+.cancel-btn {
+    position: absolute; 
+    bottom: 50px; 
+    left: 79px;
+    cursor: pointer;
 }
 .header_right{
     position: absolute;
@@ -83,7 +110,6 @@ span {
 .section_2 {
     width: 100%;
     height: 382px;
-    position: relative;
     background-color: blueviolet;
 }
 .secion_3 {
@@ -91,6 +117,27 @@ span {
     height: 353px;
     background-color: darkgreen;
     position: relative;
+}
+.printer_info_name{
+    font-size: 1.375rem;
+    color: #3E3E3E;
+    text-align: center;
+    padding: 34px 0 13px 0;
+    letter-spacing: 1.1px;
+}
+.printer_info_address{
+    font-size: 1rem;
+    color: #3E3E3E;
+    text-align: center;
+    padding: 0 0 7px 0;
+    letter-spacing: 0.8px;
+}
+.printer_info_phone_number{
+    font-size: 1rem;
+    color: #7558EE;
+    text-align: center;
+    padding: 0 0 21px 0;
+    letter-spacing: 0.8px;
 }
 #my_page{
     font-family: 'Open Sans', sans-serif;
@@ -109,22 +156,16 @@ span {
     border-radius: 50%;
 }
 #time {
-    width: 11%;
-    height: 382px;
+    width: 13%;
+    height: 150px;
     background-color: crimson;
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translate(-50%, 0);
+    margin: 0 auto;
 }
 #printer_info {
-    width: 11%;
+    width: 13%;
     height: 232px;
     background-color: blue;
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translate(-50%, 0);
+    margin: 0 auto;
 }
 #time_box {
     width: 49%;
@@ -167,6 +208,7 @@ span {
     background-color: white;
     margin: 0 auto;
     transform: translate(0, 100%);
+    padding: 50px;
     position: relative;
     opacity: 1;
 }
@@ -175,11 +217,18 @@ span {
     font-size: 1rem; 
     color: #959DAC; 
     cursor: pointer;
-    text-decoration: underline;
+    transition: font-size 200ms ease-in;
 }
 #cancel:hover{
     font-size: 1.031rem
 }
 #exit {
-    cursor: pointer;;
+    cursor: pointer;
+    right: 40px;
+    top: 40px;
+    position: absolute;
+    transition: transform 200ms ease-in;
+}
+#exit:hover {
+    transform: scale(1.1)
 }

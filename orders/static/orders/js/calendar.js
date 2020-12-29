@@ -34,6 +34,7 @@ const init = {
 const $calBody = document.querySelector('.cal-body');
 const $btnNext = document.querySelector('.btn-cal.next');
 const $btnPrev = document.querySelector('.btn-cal.prev');
+const today_btn = document.querySelector('.todayBtn');
 
 
 // function loadDate (date, dayIn) {
@@ -68,16 +69,16 @@ function loadYYMM (fullDate) {
           trtd += '<td>'
         } else {
           if (countDay + 1 < markToday.getDate()){
-            let fullDate = yy + '.' + init.addZero(mm + 1) + '.' + init.addZero(countDay + 1);
+            
               trtd += '<td class="past_day';
               trtd += (markToday && markToday.getDate() === countDay + 1) ? ' today" ' : '"';
-              trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
+              trtd += ` data-year="${yy}" data-date="${countDay + 1}" data-month = "${init.addZero(mm+1)}" >`;
               
           }else{
-            let fullDate = yy + '.' + init.addZero(mm + 1) + '.' + init.addZero(countDay + 1);
+            
             trtd += '<td class="day';
             trtd += (markToday && markToday.getDate() === countDay + 1) ? ' today" ' : '"';
-            trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
+            trtd += `data-year="${yy}" data-date="${countDay + 1}"  data-month = "${init.addZero(mm+1)}">`;
           }
         }
 
@@ -108,22 +109,22 @@ function loadYYMM (fullDate) {
           trtd += '<td>'
         } else {
           if (yy === init.today.getFullYear() && mm < init.today.getMonth()){
-              let fullDate = yy + '.' + init.addZero(mm + 1) + '.' + init.addZero(countDay + 1);
+              
               trtd += '<td class="past_day';
               trtd += (markToday && markToday.getDate() === countDay + 1) ? ' today" ' : '"';
-              trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
+              trtd += `data-year="${yy}" data-date="${countDay + 1}" data-month = "${init.addZero(mm+1)}">`;
               
           }else if (yy<init.today.getFullYear()) {
-            let fullDate = yy + '.' + init.addZero(mm + 1) + '.' + init.addZero(countDay + 1);
+            
               trtd += '<td class="past_day';
               trtd += (markToday && markToday.getDate() === countDay + 1) ? ' today" ' : '"';
-              trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
+              trtd += `data-year="${yy}" data-date="${countDay + 1}"  data-month = "${init.addZero(mm+1)}">`;
               
           }else{
-            let fullDate = yy + '.' + init.addZero(mm + 1) + '.' + init.addZero(countDay + 1);
+        
               trtd += '<td class="future';
               trtd += (markToday && markToday.getDate() === countDay + 1) ? ' today" ' : '"';
-              trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
+              trtd += `data-year="${yy}" data-date="${countDay + 1}"  data-month = "${init.addZero(mm+1)}">`;
               
           }
         }
@@ -139,7 +140,9 @@ function loadYYMM (fullDate) {
     $calBody.innerHTML = trtd;} 
   }
 
-
+ function monForChangeReset(){
+    init.monForChange = new Date().getMonth();
+  }
 // function createNewList (val) {
 //   let id = new Date().getTime() + '';
 //   let yy = init.activeDate.getFullYear();
@@ -171,6 +174,10 @@ $calBody.addEventListener('click', (e) => {
   }
 });
 
-
-
-
+today_btn.addEventListener('click', ()=> {
+  loadYYMM(init.today);
+  monForChangeReset();
+  if (init.activeDTag) {
+    init.activeDTag = null;
+  }
+})

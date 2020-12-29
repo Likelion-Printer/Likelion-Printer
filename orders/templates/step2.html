@@ -1,255 +1,271 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel='stylesheet' type='text/css' href="/static/orders/css/step2.css" />
-    
-    
+
+
 
 </head>
 
 <body>
-    
-        <header>
-            <div class = 'header_right'>
-                <div id='my_page'><a class="test" href="/confirmations/my_order/" target="my_page">마이페이지</a></div>
-                <div id='logout'><a href="/accounts/logout/" target="logout">로그아웃</a></div>
-            </div>
-            <div class = 'header_left'>
-                <a href= "{% url 'home' %}" > <img style="width: 48px; height: 54.47px;" src="/static/Group-1.png" alt="로고"></div></a>
-            </div>
-        </header>
 
-        <section>
-            <div class="section_1">
-                <div class = 'bar_box'>
-                    <div id='circle'></div>
-                    <div id='circle'></div>
-                    <div id='circle' style="background-color:#7558EE"></div>
-                    <div id='circle'></div>
-                </div>
-            </div>
-            
-            
-            <form action="{% url 'update_order' order.id %}" method="POST">
-                {% csrf_token %}
-                <div class = 'section_2'>
-                    <div id = 'shop_select_box'>
-                        <div id = 'shop_select_box_left'>
+    <header>
+        <div class='header_right'>
+            <div id='my_page'><a class="test" href="/confirmations/my_order/" target="my_page">마이페이지</a></div>
+            <div id='logout'><a href="/accounts/logout/" target="logout">로그아웃</a></div>
+        </div>
+        <div class='header_left'>
+            <a href="{% url 'home' %}"> <img style="width: 48px; height: 54.47px;" src="/static/Group-1.png" alt="로고">
+        </div></a>
+        </div>
+    </header>
 
-                            <div id = 'shop_select_1'>인쇄소 선택</div>
-                            <div id = 'shop_select_2'>
-                                {% for printer in printerhouse %}
-
-                                    
-                                    <div class='printhouse_box_2'>
-                                            <label class="label" onclick="infoToggle()">
-                                                <input type="radio" onclick="getOrderInfo(this.value);" class="printerHouse"
-                                                name="printerHouse" value="{{printer.pk}}"/>
-                                        
-                                                <div class ='pk_box'>
-                                                    <div id='pk_num'>{{printer.pk}}</div>
-                                    
-                                                    <div style="position:absolute; right: 7.9%; top: 22px; height: 115px; width: 76%;">
-                                                        
-                                                        <div id="house_name">{{printer.house_name}}</div>
-                                                        <div id="address">{{printer.address}}</div>
-                                                        <div id="phone_number">{{printer.phone_number}}</div>
-                                                        
-                                                        <div id="house_photo">이미지</div>
-                                                    </div>
-                                                </div>
-                                        </label>
-                                    </div>
-                                    
-                                {% endfor %}
-                            </div>
-
-                            <div>
-
-                                       
-                                        {% if printerhouse.has_previous %} 
-                                        <div id="shop_select_3">
-                                        
-                                            <div class="current">
-                                                <div>
-                                                    <button type="button" id='anchor_left' style="cursor: pointer;">
-                                                        <a href="?page=1"><img style="width: 10px; height: 10.1px;" src="/static/anchor_left.png/"></a>
-                                                    </button>
-                                                </div>
-                                                <div style="color: #3E3E3E">{{ printerhouse.number }}/{{ printerhouse.paginator.num_pages }}</div>
-                                                
-                                                <div>
-                                                    <button type="button" id='anchor_right' style="cursor: pointer;">
-                                                        <a href="?page={{ printerhouse.previous_page_number }}" ><img style="width: 10px; height: 10.1px;" src="/static/anchor_right.png/"></a>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                     
-                                        </div>
-                                        {% endif %}
-
-                                        
-                                        {% if printerhouse.has_next %}
-                                        <div id="shop_select_3">
-                                         
-                                            <div class="current">
-                                               
-                                                <div>
-                                                    <button type="button" id='anchor_left' style = "cursor: pointer;">
-                                                        <a href="?page={{ printerhouse.next_page_number }}"><img style="width: 10px; height: 10.1px;" src="/static/anchor_left.png/"></a>
-                                                    </button>
-                                                </div>
-                                                <div style="color: #3E3E3E">{{ printerhouse.number }}/{{ printerhouse.paginator.num_pages }}</div>  
-                                                <div>
-                                                    <button type="button" id='anchor_right' style="cursor: pointer;">
-                                                        <a href="?page={{ printerhouse.paginator.num_pages }}"><img style="width: 10px; height: 10.1px;" src="/static/anchor_right.png/"></a>
-                                                    </button>
-                                                </div>
-
-
-                                            </div>
-                                            
-                                        </div>
-                                        {% endif %}
-                                       
-                            </div>
-                            
-                        </div>   
-                             
-
-                        <div id = 'map_box'>
-                            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec01915ed2945087fbe50850f5c254ce"></script>
-                        </div>
-                    </div>
-                </div>
-
-                <div class='pickup_time_select'>
-                    <div class='pickup_time_select_box'>
-                        <div id = 'shop_select_1'>픽업 날짜 및 시간 선택</div>
-                        <div id="calendar">
-                            
-                                <div class="my-calendar clearfix">
-                                  <div class="calendar-box">
-                                    <div class="ctr-box clearfix">
-                                      <button type="button" title="prev" class="btn-cal prev">
-                                      </button>
-                                      <span class="cal-year"></span>
-                                      <span class="cal-month"></span>
-                                      <button type="button" title="next" class="btn-cal next">
-                                      </button>
-                                    </div>
-                                    <table class="cal-table">
-                                      <thead>
-                                        <tr>
-                                          <th>일</th>
-                                          <th>월</th>
-                                          <th>화</th>
-                                          <th>수</th>
-                                          <th>목</th>
-                                          <th>금</th>
-                                          <th>토</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody class="cal-body"></tbody>
-                                    </table>
-                                  </div>
-                                </div>
-                                <!-- // .my-calendar -->
-                              </div>
-                       
-                        <div class= 'payment_button_box'>
-                            <button type="submit" value="결제하기">
-                                <img src="/static/select_button.png" width=100% height = 112px >
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </section>
-
-        <div class='pickup_time_select'>
-            <div id = 'pickup_time_select_1'>픽업 시간대 선택</div>
-            <div id = 'pickup_time_select_2'>
-                시간테이블<br>
-                9시: <span class="9">0</span><br>
-                10시: <span class="10">0</span><br>
-                11시: <span class="11">0</span><br>
-                12시: <span class="12">0</span><br>
-                1시: <span class="13">0</span><br>
-                2시: <span class="14">0</span><br>
-                3시: <span class="15">0</span><br>
-                4시: <span class="16">0</span><br>
-                5시: <span class="17">0</span><br>
-                6시: <span class="18">0</span><br>
-                7시: <span class="19">0</span><br>
-                8시: <span class="20">0</span><br>
-                <input type="datetime-local" name="pickupTime">
+    <section>
+        <div class="section_1">
+            <div class='bar_box'>
+                <div id='circle'></div>
+                <div id='circle'></div>
+                <div id='circle' style="background-color:#7558EE"></div>
+                <div id='circle'></div>
             </div>
         </div>
 
-        <br>페이지 수 구하기:<span> 0 </span>
 
-    </div>
+        <form action="{% url 'update_order' order.id %}" method="POST">
+            {% csrf_token %}
+            <div class='section_2'>
+                <div id='shop_select_box'>
+                    <div id='shop_select_box_left'>
 
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.min.js"
-      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-      crossorigin="anonymous"></script>
+                        <div id='shop_select_1'>인쇄소 선택</div>
+                        <div id='shop_select_2'>
+                            {% for printer in printerhouse %}
+
+
+                            <div class='printhouse_box_2'>
+                                <label class="label" onclick="infoToggle()">
+                                    <input type="radio" onclick="getOrderInfo(this.value);" class="printerHouse"
+                                        name="printerHouse" value="{{printer.pk}}" />
+
+                                    <div class='pk_box'>
+                                        <div id='pk_num'>{{printer.pk}}</div>
+
+                                        <div
+                                            style="position:absolute; right: 7.9%; top: 22px; height: 115px; width: 76%;">
+
+                                            <div id="house_name">{{printer.house_name}}</div>
+                                            <div id="address">{{printer.address}}</div>
+                                            <div id="phone_number">{{printer.phone_number}}</div>
+
+                                            <div id="house_photo">이미지</div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+
+                            {% endfor %}
+                        </div>
+
+                        <div>
+
+
+                            {% if printerhouse.has_previous %}
+                            <div id="shop_select_3">
+
+                                <div class="current">
+                                    <div>
+                                        <button type="button" id='anchor_left' style="cursor: pointer;">
+                                            <a href="?page=1"><img style="width: 10px; height: 10.1px;"
+                                                    src="/static/anchor_left.png/"></a>
+                                        </button>
+                                    </div>
+                                    <span
+                                        style="color: #3E3E3E">{{printerhouse.number}}/{{printerhouse.paginator.num_pages}}</span>
+
+                                    <div>
+                                        <button type="button" id='anchor_right' style="cursor: pointer;">
+                                            <a href="?page={{ printerhouse.previous_page_number }}"><img
+                                                    style="width: 10px; height: 10.1px;"
+                                                    src="/static/anchor_right.png/"></a>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            {% endif %}
+
+
+                            {% if printerhouse.has_next %}
+                            <div id="shop_select_3">
+
+                                <div class="current">
+
+                                    <div>
+                                        <button type="button" id='anchor_left' style="cursor: pointer;">
+                                            <a href="?page={{ printerhouse.next_page_number }}"><img
+                                                    style="width: 10px; height: 10.1px;"
+                                                    src="/static/anchor_left.png/"></a>
+                                        </button>
+                                    </div>
+                                    <span style="color: #3E3E3E">{{ printerhouse.number }}/{{printerhouse.paginator.num_pages }}</span>
+                                    <div>
+                                        <button type="button" id='anchor_right' style="cursor: pointer;">
+                                            <a href="?page={{ printerhouse.paginator.num_pages }}"><img
+                                                    style="width: 10px; height: 10.1px;"
+                                                    src="/static/anchor_right.png/"></a>
+                                        </button>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <div id='map_box'>
+                        <script type="text/javascript"
+                            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec01915ed2945087fbe50850f5c254ce"></script>
+                    </div>
+                </div>
+            </div>
+
+            <div class='section_3'>
+
+                <div class='pickup_time_select_box'>
+                    <div id='shop_select_1'>픽업 날짜 및 시간 선택</div>
+
+
+                    <div class="my-calendar clearfix">
+                        <div class="calendar-box">
+                            <div class="ctr-box clearfix">
+                                <button type="button" title="prev" class="btn-cal prev">
+                                </button>
+                                <span class="cal-year"></span>
+                                <span class="cal-month"></span>
+                                <button type="button" title="next" class="btn-cal next">
+                                </button>
+                                <button type='button' title='today' class="todayBtn">초기화</button>
+                            </div>
+                            <table class="cal-table">
+                                <thead>
+                                    <tr>
+                                        <th>일</th>
+                                        <th>월</th>
+                                        <th>화</th>
+                                        <th>수</th>
+                                        <th>목</th>
+                                        <th>금</th>
+                                        <th>토</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="cal-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div id='pickup_time_detail'>
+                        시간테이블<br>
+                        9시: <span class="9">0</span><br>
+                        10시: <span class="10">0</span><br>
+                        11시: <span class="11">0</span><br>
+                        12시: <span class="12">0</span><br>
+                        1시: <span class="13">0</span><br>
+                        2시: <span class="14">0</span><br>
+                        3시: <span class="15">0</span><br>
+                        4시: <span class="16">0</span><br>
+                        5시: <span class="17">0</span><br>
+                        6시: <span class="18">0</span><br>
+                        7시: <span class="19">0</span><br>
+                        8시: <span class="20">0</span><br>
+                        <input type="datetime-local" name="pickupTime">
+                    </div>
+
+                    <br>페이지 수 구하기:<span> 0 </span>
+
+
+
+                    <div class='payment_button_box'>
+                        <button type="submit" value="결제하기">
+                            <img src="/static/select_button.png" width=100% height=112px>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/static/orders/js/map.js"></script>
     <script type="text/javascript" src="/static/orders/js/calendar.js"></script>
 
 
-    
-    
+
+
     <script type="text/javascript">
 
         // 페이지가 처음 로드될 때
         window.onload = getOrderInfo(1);
 
-        function getOrderInfo(printerId){
-            
+        function getOrderInfo(printerId) {
+
             $.ajax({
                 type: "GET",
                 url: "http://127.0.0.1:8000/orders/api/" + printerId,
                 dataType: "json",
                 async: true,
                 data: { csrfmiddlewaretoken: '{{csrf_token}}' },
-                error : function(){
-                    alert('Failed');    
+                error: function () {
+                    alert('Failed');
                 },
-                success: function(data){
+                success: function (data) {
                     let obj = JSON.parse(data.message);
                     const num = obj.length;
-                    let peoplePerHour = {".9": 0, ".10": 0, ".11": 0, ".12": 0, ".13": 0, ".14": 0,
-                    ".15": 0, ".16": 0, ".17": 0, ".18": 0, ".19": 0, ".20": 0,};
-                    let today = new Date();   
+                    let peoplePerHour = {
+                        ".9": 0, ".10": 0, ".11": 0, ".12": 0, ".13": 0, ".14": 0,
+                        ".15": 0, ".16": 0, ".17": 0, ".18": 0, ".19": 0, ".20": 0,
+                    };
+                    let today = new Date();
 
-                    for(let id in obj) {
+                    for (let id in obj) {
                         let time = obj[id]['fields']['pickup_time'];
-                        let year = time.slice(0,4);
-                        let month = time.slice(5,7);
-                        let date = time.slice(8,10);
+                        let year = time.slice(0, 4);
+                        let month = time.slice(5, 7);
+                        let date = time.slice(8, 10);
 
                         let yearNow = today.getFullYear();
-                        let monthNow = today.getMonth() + 1 < 10 ? "0" + (today.getMonth() + 1) : today.getMonth() + 1; 
-                        let dateNow = today.getDate() + 1 < 10 ? "0" + today.getDate() : today.getDate(); 
+                        let monthNow = today.getMonth() + 1 < 10 ? "0" + (today.getMonth() + 1) : today.getMonth() + 1;
+                        let dateNow = today.getDate() + 1 < 10 ? "0" + today.getDate() : today.getDate();
 
-                        if(year == yearNow && month == monthNow && date == dateNow){
+                        if (year == yearNow && month == monthNow && date == dateNow) {
 
-                            let hour = parseInt(time.slice(11,13));
+                            let hour = parseInt(time.slice(11, 13));
 
                             // 한국시간 오전 9시부터 오후 8시
-                            if ( (hour <= 20) && (hour >= 9) ){
+                            if ((hour <= 20) && (hour >= 9)) {
                                 let selector = "." + hour.toString();
-                                if(peoplePerHour[selector]){
+                                if (peoplePerHour[selector]) {
                                     peoplePerHour[selector] += 1;
                                 }
-                                else{
+                                else {
                                     peoplePerHour[selector] = 1;
                                 }
                                 $(selector).html(peoplePerHour[selector]);
@@ -257,14 +273,16 @@
                         }
                     }
 
-                    for(let i in peoplePerHour){
+                    for (let i in peoplePerHour) {
                         $(i).html(peoplePerHour[i]);
                     }
                     console.log(obj)
                 }
             })
-        } 
+        }
+
 
     </script>
 </body>
+
 </html>
