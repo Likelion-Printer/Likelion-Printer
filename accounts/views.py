@@ -38,6 +38,9 @@ def staff_login(request):
     return render(request, 'staff_login.html')
 
 
+def test(request):
+    return render(request, 'index.html')
+
 
 def kakao_login(request):
     # REST_API_KEY = os.environ.get("K_KEY")
