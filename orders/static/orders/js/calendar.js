@@ -31,7 +31,7 @@ const init = {
   }
 };
 
-const $calBody = document.querySelector('.cal-body');
+const calBody = document.querySelector('.cal-body');
 const $btnNext = document.querySelector('.btn-cal.next');
 const $btnPrev = document.querySelector('.btn-cal.prev');
 const today_btn = document.querySelector('.todayBtn');
@@ -48,11 +48,13 @@ function loadYYMM (fullDate) {
   let mm = fullDate.getMonth();
   let firstDay = init.getFirstDay(yy, mm);
   let lastDay = init.getLastDay(yy, mm);
+  let possibleRange;
   let markToday;  // for marking today date
   
   if (mm === init.today.getMonth() && yy === init.today.getFullYear()) {
     markToday = init.today;
-
+    possibleRange = markToday.getDate() + 7
+    
     document.querySelector('.cal-month').textContent = init.monList[mm];
     document.querySelector('.cal-year').textContent = `${yy}년`;
 
@@ -69,14 +71,16 @@ function loadYYMM (fullDate) {
           trtd += '<td>'
         } else {
           if (countDay + 1 < markToday.getDate()){
-            
-              trtd += '<td class="past_day';
+              trtd += '<td class="past_day ';
               trtd += (markToday && markToday.getDate() === countDay + 1) ? ' today" ' : '"';
-              trtd += ` data-year="${yy}" data-date="${countDay + 1}" data-month = "${init.addZero(mm+1)}" >`;
-              
-          }else{
-            
+              trtd += ` countDay=${countDay} data-year="${yy}" data-date="${countDay + 1}" data-month = "${init.addZero(mm+1)}" >`;
+             
+          }else if (countDay+1<markToday.getDate()+7) {
             trtd += '<td class="day';
+            trtd += (markToday && markToday.getDate() === countDay + 1) ? ' today" ' : '"';
+            trtd += `data-year="${yy}" data-date="${countDay + 1}"  data-month = "${init.addZero(mm+1)}">`;
+          } else {
+            trtd += '<td class="future';
             trtd += (markToday && markToday.getDate() === countDay + 1) ? ' today" ' : '"';
             trtd += `data-year="${yy}" data-date="${countDay + 1}"  data-month = "${init.addZero(mm+1)}">`;
           }
@@ -91,7 +95,7 @@ function loadYYMM (fullDate) {
       }
       trtd += '</tr>';
     } 
-    $calBody.innerHTML = trtd;
+    calBody.innerHTML = trtd;
   }else{
     document.querySelector('.cal-month').textContent = init.monList[mm];
     document.querySelector('.cal-year').textContent = `${yy}년`;
@@ -109,19 +113,16 @@ function loadYYMM (fullDate) {
           trtd += '<td>'
         } else {
           if (yy === init.today.getFullYear() && mm < init.today.getMonth()){
-              
               trtd += '<td class="past_day';
               trtd += (markToday && markToday.getDate() === countDay + 1) ? ' today" ' : '"';
               trtd += `data-year="${yy}" data-date="${countDay + 1}" data-month = "${init.addZero(mm+1)}">`;
               
           }else if (yy<init.today.getFullYear()) {
-            
               trtd += '<td class="past_day';
               trtd += (markToday && markToday.getDate() === countDay + 1) ? ' today" ' : '"';
               trtd += `data-year="${yy}" data-date="${countDay + 1}"  data-month = "${init.addZero(mm+1)}">`;
               
           }else{
-        
               trtd += '<td class="future';
               trtd += (markToday && markToday.getDate() === countDay + 1) ? ' today" ' : '"';
               trtd += `data-year="${yy}" data-date="${countDay + 1}"  data-month = "${init.addZero(mm+1)}">`;
@@ -137,7 +138,7 @@ function loadYYMM (fullDate) {
       }
       trtd += '</tr>';
     }
-    $calBody.innerHTML = trtd;} 
+    calBody.innerHTML = trtd;} 
   }
 
  function monForChangeReset(){
@@ -160,8 +161,8 @@ $btnNext.addEventListener('click', () => loadYYMM(init.nextMonth()));
 $btnPrev.addEventListener('click', () => loadYYMM(init.prevMonth()));
 
 
-$calBody.addEventListener('click', (e) => {
-  if (e.target.classList.contains('day') || e.target.classList.contains('future')) {
+calBody.addEventListener('click', (e) => {
+  if (e.target.classList.contains('day')) {
     if (init.activeDTag) {
       init.activeDTag.classList.remove('day-active');
     }

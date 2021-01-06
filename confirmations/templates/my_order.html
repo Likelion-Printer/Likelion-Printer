@@ -1,25 +1,72 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <header>
-      <a class="test" href="{% url 'my_order' %}">마이페이지</a>
-      <a href="{% url 'logout' %}">로그아웃</a>
-    </header>
 
-    {{order_user}}의 주문 페이지입니다.
-    <div>나의 현재 금액: {{order_user.current_balance}}</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>마이페이지</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="/static/confirmations/css/my_order.css" />
 
-    <div>주문 날짜 | 인쇄소 | 픽업예정시각 | 상태 | 결제 금액</div>
-    {% for order in myorder %}
+</head>
 
-    <div>
-      {{order.order_time}}&nbsp|{{order.printer_house}}&nbsp|{{order.pickup_time}}&nbsp|{{order.status}}&nbsp|{{order.cost}}
+<body>
+  <header>
+    <div class='header_right'>
+      <div id='my_page'><a class="test" href="/confirmations/my_order/" target="my_page">마이페이지</a></div>
+      <div id='logout'><a href="/accounts/logout/" target="logout">로그아웃</a></div>
     </div>
-    {% endfor %}
-  </body>
+    <div class='header_left'>
+      <a href="{% url 'home' %}"> <img style="width: 48px; height: 54.47px;" src="/static/Group-1.png" alt="로고">
+    </div></a>
+    </div>
+  </header>
+
+  <div class="current_balance_w">
+    <p class="current_balance">{{order_user.current_balance}}<span
+        style="font-size: 1.625rem; color: black; margin-left: 10px;">p</span></p>
+    <button class="add"><img src="/static/confirmations/add.png" style="width: 104px; height: 40px;"></button>
+  </div>
+
+
+  <div class="order-list-w">
+
+    <p class="order-list">주문 내역</p>
+    
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>주문날짜</th>
+            <th>인쇄소</th>
+            <th>픽업예정시간</th>
+            <th>상태</th>
+            <th>결제금액</th>
+          </tr>
+        </thead>
+        <tbody> 
+          {% for order in myorder %}
+          <tr>
+            <td style="border-radius: 10px 0 0 10px;">{{order.order_time}}</td>
+            <td>{{order.printer_house}}</td>
+            <td>{{order.pickup_time}}</td>
+            <td>{{order.status}}</td>
+            <td style="border-radius: 0 10px 10px 0;">{{order.cost}}</td>
+          </tr>
+           {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+ 
+
+  <!-- <div>
+    {{order.order_time}}&|{{order.printer_house}}&|{{order.pickup_time}}&|{{order.status}}&|{{order.cost}}
+  </div> -->
+ 
+</body>
+
 </html>

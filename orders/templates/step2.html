@@ -114,7 +114,8 @@
                                                     src="/static/anchor_left.png/"></a>
                                         </button>
                                     </div>
-                                    <span style="color: #3E3E3E">{{ printerhouse.number }}/{{printerhouse.paginator.num_pages }}</span>
+                                    <span style="color: #3E3E3E">{{
+                                        printerhouse.number}}/{{printerhouse.paginator.num_pages }}</span>
                                     <div>
                                         <button type="button" id='anchor_right' style="cursor: pointer;">
                                             <a href="?page={{ printerhouse.paginator.num_pages }}"><img
@@ -175,25 +176,110 @@
                         </div>
                     </div>
 
-
-
-
-
                     <div id='pickup_time_detail'>
-                        시간테이블<br>
-                        9시: <span class="9">0</span><br>
-                        10시: <span class="10">0</span><br>
-                        11시: <span class="11">0</span><br>
-                        12시: <span class="12">0</span><br>
-                        1시: <span class="13">0</span><br>
-                        2시: <span class="14">0</span><br>
-                        3시: <span class="15">0</span><br>
-                        4시: <span class="16">0</span><br>
-                        5시: <span class="17">0</span><br>
-                        6시: <span class="18">0</span><br>
-                        7시: <span class="19">0</span><br>
-                        8시: <span class="20">0</span><br>
-                        <input type="datetime-local" name="pickupTime">
+                        <div class="tb_pickup_time_detail">
+                            <form>
+                                <div class="tr">
+                                    <span class="th">오전</span>
+                                    <label for="8am" class="td">
+                                        <input type="radio" id="8am" name="pickup-time" value="8" >
+                                        8:00
+                                    </label>
+                                                               
+                                    <label for="9am" class="td">
+                                        <input type="radio" id="9am" name="pickup-time" value="9"> 
+                                        9:00
+                                    </label>
+
+                                    <label for="10am" class="td">
+                                        <input type="radio" id="10am" name="pickup-time" value="10">
+                                        10:00
+                                    </label>
+
+                                    <label for="11am" class="td">
+                                        <input type="radio" id="11am" name="pickup-time" value="11">
+                                        11:00
+                                    </label>
+
+                                </div>
+
+                                <div class="tr">
+                                    <span class="th">점심</span>
+
+                                    <label for="12pm" class="td">
+                                        <input type="radio" id="12pm" name="pickup-time" value="12">
+                                        12:00
+                                    </label>
+
+                                    <label for="1pm" class="td">
+                                        <input type="radio" id="1pm" name="pickup-time" value="13">
+                                        1:00
+                                    </label>
+
+                                    <label for="2pm" class="td">
+                                        <input type="radio" id="2pm" name="pickup-time" value="14">
+                                        2:00
+                                    </label>
+
+                                    <label for="3pm" class="td">
+                                        <input type="radio" id="3pm" name="pickup-time" value="15">
+                                        3:00
+                                    </label>
+
+                                </div>
+
+                                <div class="tr" >
+                                    <span class="th">오후</span>
+
+                                    <label for="4pm" class="td" >
+                                        <input type="radio" id="4pm" name="pickup-time" value="16">
+                                        4:00
+                                    </label>
+
+                                    <label for="5pm" class="td">
+                                        <input type="radio" id="5pm" name="pickup-time" value="17">
+                                        5:00
+                                    </label>
+
+                                    <label for="6pm" class="td">
+                                        <input type="radio" id="6pm" name="pickup-time" value="18">
+                                        6:00
+                                    </label>
+
+                                    <label for="7pm" class="td">
+                                        <input type="radio" id="7pm" name="pickup-time" value="19">
+                                        7:00
+                                    </label>
+
+                                </div>
+
+                                <div class="tr">
+                                    <span class="th">저녁</span>
+
+                                    <label for="8pm" class="td" >
+                                        <input type="radio" id="8pm" name="pickup-time" value="20">
+                                        8:00
+                                    </label>
+
+                                    <label for="9pm" class="td">
+                                        <input type="radio" id="9pm" name="pickup-time" value="21">
+                                        9:00
+                                    </label>
+
+                                    <label for="10pm" class="td">
+                                        <input type="radio" id="10pm" name="pickup-time" value="22">
+                                        10:00
+                                    </label>
+
+                                    <label for="11pm" class="td">
+                                        <input type="radio" id="11pm" name="pickup-time" value="23">
+                                        11:00
+                                    </label>
+
+                                </div>
+                            </form>
+                        </div>
+                        <!-- <input type="datetime-local" name="pickupTime"> -->
                     </div>
 
                     <br>페이지 수 구하기:<span> 0 </span>
@@ -216,9 +302,7 @@
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/static/orders/js/map.js"></script>
     <script type="text/javascript" src="/static/orders/js/calendar.js"></script>
-
-
-
+    <script type="text/javascript" src="/static/orders/js/pickup-time.js"></script>
 
     <script type="text/javascript">
 

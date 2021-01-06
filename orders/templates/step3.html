@@ -1,88 +1,107 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel='stylesheet' type='text/css' href="/static/orders/css/step3.css" />
-    
-    
+
+
 
 </head>
 
 <body>
-        
-        <div id="cancel_bg">
-            <div id="cancel_modal">
-                <button id="exit">
-                    <i class="fas fa-times fa-2x"></i>
-                </button>
-                <div class="message">
-                    <span class="cancel-message">해당 주문을 취소하시겠습니까?</span>
-                    <button class='cancel-btn'><img src="/static/cancel_button.png"></button>
+
+    <div id="cancel_bg">
+        <div id="cancel_modal">
+            <button id="exit">
+                <i class="fas fa-times fa-2x"></i>
+            </button>
+            <div class="message">
+                <span class="cancel-message">해당 주문을 취소하시겠습니까?</span>
+                <button class='cancel-btn'><img src="/static/cancel_button.png"></button>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class='header_right'>
+            <div id='my_page'><a class="test" href="/confirmations/my_order/" target="my_page">마이페이지</a></div>
+            <div id='logout'><a href="/accounts/logout/" target="logout">로그아웃</a></div>
+        </div>
+        <div class='header_left'>
+            <a href="{% url 'home' %}"> <img style="width: 48px; height: 54.47px;" src="/static/Group-1.png" alt="로고">
+        </div></a>
+        </div>
+    </header>
+
+    <section>
+        <div class="section_1">
+            <div class='bar_box'>
+                <div id='circle'></div>
+                <div id='circle'></div>
+                <div id='circle'></div>
+                <div id='circle' style="background-color:#7558EE"></div>
+            </div>
+            <div
+                style=" position: absolute; left: 50%; transform: translate(-50%, 0); top: 115px; display: flex; flex-direction: column; align-items: center;">
+                <div
+                    style='font-size: 1.375rem; margin-bottom: 10px; font-family: "Open Sans", sans-serif; font-weight: 600;'>
+                    예약완료</div>
+                <div id='cancel'>
+                    예약취소
                 </div>
             </div>
         </div>
-               
-        <header>
-            <div class = 'header_right'>
-                <div id='my_page'><a class="test" href="/confirmations/my_order/" target="my_page">마이페이지</a></div>
-                <div id='logout'><a href="/accounts/logout/" target="logout">로그아웃</a></div>
-            </div>
-            <div class = 'header_left'>
-                <a href= "{% url 'home' %}" > <img style="width: 48px; height: 54.47px;" src="/static/Group-1.png" alt="로고"></div></a>
-            </div>
-        </header>
 
-        <section>
-            <div class="section_1">
-                <div class = 'bar_box'>
-                    <div id='circle'></div>
-                    <div id='circle'></div>
-                    <div id='circle'></div>
-                    <div id='circle' style="background-color:#7558EE"></div>
-                </div>
-                <div style=" position: absolute; left: 50%; transform: translate(-50%, 0); top: 115px; display: flex; flex-direction: column; align-items: center;">
-                    <div style= 'font-size: 1.375rem; margin-bottom: 10px; font-family: "Open Sans", sans-serif; font-weight: 600;'>예약완료</div>
-                    <div id = 'cancel'>
-                        예약취소
+        <div class='section_2'>
+            <div id="time">
+                <div style='font-size: 1rem; color: #7558EE; margin-bottom: 10px;'>픽업시간</div>
+
+                <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+                    <div id="time_box">
+                        <p class="timenum">
+                            <span class="timeampm">{{order.pickup_time_AmPm}}</span>{{order.pickup_time_hour}}
+                        </p>
                     </div>
+                    <div id="time_box">
+                        <p class="timenum">
+                            {{order.pickup_time_min}}
+                        </p>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div id="printer_info">
+                <span class="printer_info_name">{{order.printer_house.house_name}}</span>
+                <span class="printer_info_address"> {{order.printer_house.address}}</span>
+                <span class="printer_info_phone_number">{{order.printer_house.phone_number}}</span>
+                <div class="maphref">
+                    <button><img src="/static/map.png"></button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="secion_3">
+            <div id='printer_list'>
+                <div id="printer_list_top">
+                    <div style="font-size: 1.2rem; color: #3E3E3E;">프린트 리스트</div>
+                    <button
+                        style="background-color: #7558EE; color: white; border-radius: 10px 10px 10px 10px; cursor: pointer;">설정
+                        보기</button>
                 </div>
             </div>
 
-            <div class='section_2'>
-                <div id="time">
-                    <div style='font-size: 1rem; color: #7558EE;'>픽업시간</div>
-                    
-                    <div style="display: flex; justify-content: space-between; margin-top: 5px;">
-                        <div id="time_box">{{order.pickup_time}}</div>
-                        <div id="time_box"></div>
-                    </div>
-                </div>
-                <div id="printer_info">
-                    <span class="printer_info_name">{{order.printer_house.house_name}}</span>
-                    <span class="printer_info_address"> {{order.printer_house.address}}</span>
-                    <span class="printer_info_phone_number">{{order.printer_house.phone_number}}</span>
-                </div>
-            </div>
-
-            <div class="secion_3">
-                <div id='printer_list'>
-                    <div id="printer_list_top">
-                        <div style="font-size: 1.2rem; color: #3E3E3E;">프린트 리스트</div>
-                        <button style="background-color: #7558EE; color: white; border-radius: 10px 10px 10px 10px; cursor: pointer;">설정 보기</button>
-                    </div>
-                </div>
-                <button id='recipt_button' value="영수증">
-                    <img src="/static/recipt.png" >
-                </button>
-            </div>        
-        </section>
+        </div>
+    </section>
 </body>
 
 <script src="https://kit.fontawesome.com/8180a87f0a.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="/static/orders/js/cancelPopUp.js"></script>
-
-

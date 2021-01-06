@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
 }
 html {
     width: 100%;
@@ -38,7 +39,20 @@ a[target='logout'] {
 input[type='radio'] {
     display: none;
 }
-
+label {
+  display:inline-block;
+  width:150px;
+  height:50px;
+  background-repeat:no-repeat;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  text-align: center;
+  padding-top: 9px;
+  border: 1px solid #EBEBEB;
+  border-radius: 10px 10px 10px 10px;
+  font-size: 1.375rem;
+}
 .header_right{
     position: absolute;
     display: flex;
@@ -108,7 +122,7 @@ input[type='radio'] {
 }
 
 #pickup_time_detail {
-  width: 50%;
+  width: 70%;
   height: 317px;
   background-color: fuchsia;
   margin: 0 auto;
@@ -249,8 +263,8 @@ input[type='radio'] {
 }
 
 .calendar-box {
-  margin: 0 auto;
-  width: 50%;
+  margin: 0 auto 140px auto;
+  width: 70%;
   height: 552px;
 }
 .ctr-box {
@@ -320,7 +334,8 @@ input[type='radio'] {
 }
 .cal-table td.future {
   position: relative;
-  cursor: pointer;
+  cursor: default;
+  color: #C4C4C4
 }
 .cal-table td.today {
   background: #ffd255;
@@ -331,4 +346,23 @@ input[type='radio'] {
   background: #7558EE;
   border-radius: 50%;
   color: #FFFFFF
+}
+.cal-table td{
+  padding: 20px 30px;
+}
+.tb_pickup_time_detail{
+  width: 100%;
+  display: flex;
+  justify-content:space-between
+}
+.th{
+  color: #3E3E3E;
+  font-size: 1.375rem;
+  padding-bottom: 30px;
+  text-align: center;
+}
+.tr {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
 }

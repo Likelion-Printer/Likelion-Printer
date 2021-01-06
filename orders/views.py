@@ -107,6 +107,8 @@ def upload_file(request):
 
 def step3(request,id):
     order = Order.objects.get(id=id)
-    order.pickup_time = order.pickup_time.strftime('%b %d %I:%M%p')
+    order.pickup_time_hour = order.pickup_time.strftime('%I')
+    order.pickup_time_min = order.pickup_time.strftime('%M')
+    order.pickup_time_AmPm = order.pickup_time.strftime('%p')
     return render(request, 'step3.html', { 'order' : order })
 
